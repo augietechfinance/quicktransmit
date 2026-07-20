@@ -1,4 +1,4 @@
-# SwiftRemit Operational Runbook
+# QuickTransmit Operational Runbook
 
 On-call reference for common production procedures. All `soroban contract invoke` commands assume the following environment variables are set:
 
@@ -465,7 +465,7 @@ soroban contract invoke \
 ```bash
 # AWS Secrets Manager example
 aws secretsmanager put-secret-value \
-  --secret-id swiftremit/admin-secret-key \
+  --secret-id quicktransmit/admin-secret-key \
   --secret-string '{"ADMIN_SECRET_KEY":"<new_secret_key>"}'
 ```
 
@@ -510,12 +510,12 @@ Confirm the count reflects only the new key. Post a rotation notice in `#inciden
 | P3 | TTL warnings / non-critical degradation | 4 hours | 24 hours | On-call engineer |
 
 ## Prometheus alerting rules
-The repository includes `monitoring/alerts.yml` with the recommended Prometheus alerting rules for SwiftRemit backend health.
+The repository includes `monitoring/alerts.yml` with the recommended Prometheus alerting rules for QuickTransmit backend health.
 
-- `SwiftRemitWebhookDeliveryFailureRateHigh`: alerts when webhook delivery failures exceed 10% over 10 minutes.
-- `SwiftRemitKycPollFailureRateHigh`: alerts when KYC poll failures exceed 20% of poll cycles over 5 minutes.
-- `SwiftRemitFxCacheMissRateHigh`: alerts when FX cache misses exceed 15% of FX cache lookups over 5 minutes.
-- `SwiftRemitAccumulatedFeesThresholdExceeded`: alerts when accumulated fees exceed the configured operational threshold.
+- `QuickTransmitWebhookDeliveryFailureRateHigh`: alerts when webhook delivery failures exceed 10% over 10 minutes.
+- `QuickTransmitKycPollFailureRateHigh`: alerts when KYC poll failures exceed 20% of poll cycles over 5 minutes.
+- `QuickTransmitFxCacheMissRateHigh`: alerts when FX cache misses exceed 15% of FX cache lookups over 5 minutes.
+- `QuickTransmitAccumulatedFeesThresholdExceeded`: alerts when accumulated fees exceed the configured operational threshold.
 
 **Note:** These alerts are shipped in `monitoring/alerts.yml` and should be imported into the production Prometheus alertmanager configuration.
 

@@ -1,8 +1,8 @@
-# ASSIGNMENT COMPLETE: SwiftRemit Issue #236
+# ASSIGNMENT COMPLETE: QuickTransmit Issue #236
 
 ## Executive Summary
 
-As a web developer with 15+ years of experience, I have successfully completed the SwiftRemit assignment for Issue #236: "Add get_fee_breakdown query function to contract." 
+As a web developer with 15+ years of experience, I have successfully completed the QuickTransmit assignment for Issue #236: "Add get_fee_breakdown query function to contract." 
 
 **Status:** ✅ **ASSIGNMENT COMPLETE AND READY FOR TESTING**
 
@@ -276,7 +276,7 @@ cargo test test_fee_breakdown -- --nocapture
 cargo build --target wasm32-unknown-unknown --release
 
 # Optimize for deployment
-soroban contract optimize --wasm target/wasm32-unknown-unknown/release/swiftremit.wasm
+soroban contract optimize --wasm target/wasm32-unknown-unknown/release/quicktransmit.wasm
 ```
 
 ### Deploy

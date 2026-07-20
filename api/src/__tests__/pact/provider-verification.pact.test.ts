@@ -1,11 +1,11 @@
 /**
- * Pact provider verification for the SwiftRemit API.
+ * Pact provider verification for the QuickTransmit API.
  *
  * Verifies that the real API implementation satisfies the contracts generated
- * by the SwiftRemitFrontend consumer test suite.
+ * by the QuickTransmitFrontend consumer test suite.
  *
- * Consumer tests live at:  frontend/src/pact/swiftremit-api.consumer.pact.test.ts
- * Generated pact files at: pacts/SwiftRemitFrontend-SwiftRemitAPI.json
+ * Consumer tests live at:  frontend/src/pact/quicktransmit-api.consumer.pact.test.ts
+ * Generated pact files at: pacts/QuickTransmitFrontend-QuickTransmitAPI.json
  *
  * Issue #934: Add API endpoint contract tests with Pact.
  */
@@ -69,7 +69,7 @@ const stateHandlers: Record<string, () => Promise<void>> = {
 
 // ── Provider verification ─────────────────────────────────────────────────────
 
-describe('SwiftRemit API — Pact provider verification', () => {
+describe('QuickTransmit API — Pact provider verification', () => {
   beforeAll(async () => {
     serverPort = await startProvider();
   });
@@ -78,14 +78,14 @@ describe('SwiftRemit API — Pact provider verification', () => {
     if (server) server.close();
   });
 
-  it('satisfies all contracts from SwiftRemitFrontend', async () => {
+  it('satisfies all contracts from QuickTransmitFrontend', async () => {
     const pactDir = path.resolve(__dirname, '../../../../../pacts');
 
     const verifier = new Verifier({
-      provider: 'SwiftRemitAPI',
+      provider: 'QuickTransmitAPI',
       providerBaseUrl: `http://localhost:${serverPort}`,
       pactUrls: [
-        path.join(pactDir, 'SwiftRemitFrontend-SwiftRemitAPI.json'),
+        path.join(pactDir, 'QuickTransmitFrontend-QuickTransmitAPI.json'),
       ],
       stateHandlers,
       // Fail the CI job if the pact file is missing, which means the consumer

@@ -1,6 +1,6 @@
-# SwiftRemit Examples
+# QuickTransmit Examples
 
-This directory contains examples demonstrating how to interact with the SwiftRemit smart contract from external clients.
+This directory contains examples demonstrating how to interact with the QuickTransmit smart contract from external clients.
 
 ## Quick Start
 
@@ -9,7 +9,7 @@ This directory contains examples demonstrating how to interact with the SwiftRem
 - **Node.js 18+** - [Install Node.js](https://nodejs.org/)
 - **npm or yarn** - Package manager
 - **Stellar account** - Account on testnet or mainnet
-- **Deployed contract** - SwiftRemit contract deployed to the network
+- **Deployed contract** - QuickTransmit contract deployed to the network
 - **USDC tokens** - Test USDC for the sender account
 
 ### Installation
@@ -44,7 +44,7 @@ node client-example.js
 
 ## Example Flow
 
-The [`client-example.js`](client-example.js) demonstrates the complete SwiftRemit interaction flow:
+The [`client-example.js`](client-example.js) demonstrates the complete QuickTransmit interaction flow:
 
 ### 1. Administrative Functions
 
@@ -130,7 +130,7 @@ await withdrawFees(adminKeypair, adminKeypair.publicKey());
 
 | Variable | Description |
 |----------|-------------|
-| `SWIFTREMIT_CONTRACT_ID` | Deployed contract address |
+| `QUICKTRANSMIT_CONTRACT_ID` | Deployed contract address |
 | `USDC_TOKEN_ID` | USDC token contract address |
 | `ADMIN_SECRET` | Admin account secret (test only!) |
 | `SENDER_SECRET` | Sender account secret (test only!) |
@@ -239,6 +239,6 @@ const events = await server.getContractEvents(
 
 ## Support
 
-- [GitHub Issues](https://github.com/swiftremit/swiftremit/issues)
+- [GitHub Issues](https://github.com/quicktransmit/quicktransmit/issues)
 - [Stellar Discord](https://discord.gg/stellar)
 - [Documentation](../README.md)

@@ -1,4 +1,4 @@
-# SwiftRemit Production Refactoring - Status Report
+# QuickTransmit Production Refactoring - Status Report
 
 **Date**: 2026-02-28  
 **Branch**: refactor/production-readiness  
@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-The production-readiness refactoring of SwiftRemit Soroban smart contracts has been completed for all core modules. The refactoring strictly preserved existing logic, storage schemas, and public APIs while improving code quality, security, and documentation.
+The production-readiness refactoring of QuickTransmit Soroban smart contracts has been completed for all core modules. The refactoring strictly preserved existing logic, storage schemas, and public APIs while improving code quality, security, and documentation.
 
 ### Refactoring Scope: COMPLETED ✅
 
@@ -241,14 +241,14 @@ The refactored modules include comprehensive unit tests:
 ### Integration Tests
 Once compilation issues are resolved:
 ```bash
-cargo test --package swiftremit
+cargo test --package quicktransmit
 ```
 
 ### Testnet Deployment
 After successful compilation:
 ```bash
 cargo build --release --target wasm32-unknown-unknown
-soroban contract deploy --wasm target/wasm32-unknown-unknown/release/swiftremit.wasm --network testnet
+soroban contract deploy --wasm target/wasm32-unknown-unknown/release/quicktransmit.wasm --network testnet
 ```
 
 ---

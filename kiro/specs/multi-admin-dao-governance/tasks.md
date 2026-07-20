@@ -3,7 +3,7 @@
 ## Overview
 
 These tasks implement the governance proposal lifecycle on top of the existing
-multi-admin scaffolding in SwiftRemit. Work is ordered so each task compiles and
+multi-admin scaffolding in QuickTransmit. Work is ordered so each task compiles and
 passes tests independently before the next begins.
 
 ---
@@ -151,7 +151,7 @@ passes tests independently before the next begins.
 
 - [ ] 4.1 Add `mod governance;` declaration and import `governance::*` functions
 
-- [ ] 4.2 Add public entry points to `SwiftRemitContract` impl
+- [ ] 4.2 Add public entry points to `QuickTransmitContract` impl
 
   ```rust
   pub fn propose(env: Env, proposer: Address, action: ProposalAction) -> Result<u64, ContractError>

@@ -11,8 +11,8 @@
 #   STELLAR_CLI   — path to stellar/soroban CLI binary (default: stellar)
 #
 # Outputs:
-#   abi/swiftremit.contract.json   — human-readable contract spec (JSON)
-#   abi/swiftremit.wasm.hash       — SHA-256 hash of the deployed WASM
+#   abi/quicktransmit.contract.json   — human-readable contract spec (JSON)
+#   abi/quicktransmit.wasm.hash       — SHA-256 hash of the deployed WASM
 #   public/.well-known/stellar.toml — updated with CONTRACT_ID + WASM_HASH
 
 set -euo pipefail
@@ -48,9 +48,9 @@ echo "⬇️   Fetching contract spec..."
   --contract-id "${CONTRACT_ID}" \
   --network "${NETWORK}" \
   --output json \
-  > "${ABI_DIR}/swiftremit.contract.json"
+  > "${ABI_DIR}/quicktransmit.contract.json"
 
-echo "✅  ABI written to abi/swiftremit.contract.json"
+echo "✅  ABI written to abi/quicktransmit.contract.json"
 
 # ─── 2. Fetch WASM hash ───────────────────────────────────────────────────────
 echo "⬇️   Fetching WASM hash..."
@@ -71,7 +71,7 @@ if [[ -z "${WASM_HASH}" ]]; then
   WASM_HASH="unknown"
 fi
 
-echo "${WASM_HASH}" > "${ABI_DIR}/swiftremit.wasm.hash"
+echo "${WASM_HASH}" > "${ABI_DIR}/quicktransmit.wasm.hash"
 echo "✅  WASM hash: ${WASM_HASH}"
 
 # ─── 3. Derive contract version from Cargo.toml ───────────────────────────────

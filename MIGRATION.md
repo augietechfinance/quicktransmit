@@ -1,4 +1,4 @@
-# SwiftRemit Contract Migration Guide
+# QuickTransmit Contract Migration Guide
 
 This document covers two distinct migration scenarios:
 
@@ -74,7 +74,7 @@ needed.
 ### 2. Upgrade the WASM
 
 ```bash
-soroban contract install --wasm target/wasm32-unknown-unknown/release/swiftremit.wasm
+soroban contract install --wasm target/wasm32-unknown-unknown/release/quicktransmit.wasm
 # Note the new WASM hash printed above, e.g. abc123...
 
 soroban contract invoke \

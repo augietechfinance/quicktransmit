@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the implementation of batch remittance creation for SwiftRemit, which allows high-volume senders to create multiple remittances in a single atomic transaction, reducing ledger fees.
+This document describes the implementation of batch remittance creation for QuickTransmit, which allows high-volume senders to create multiple remittances in a single atomic transaction, reducing ledger fees.
 
 ## Changes Made
 

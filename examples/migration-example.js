@@ -1,5 +1,5 @@
 /**
- * Contract Migration Example for SwiftRemit
+ * Contract Migration Example for QuickTransmit
  * 
  * This example demonstrates how to safely migrate state from an old
  * contract deployment to a new one using cryptographic verification.
@@ -432,7 +432,7 @@ async function verifyMigrationSuccess(oldContract, newContract) {
 async function main() {
   const requestId = process.env.REQUEST_ID || uuidv4();
   logger = createLogger('migration-example', requestId);
-  logger.info('=== SwiftRemit Contract Migration Examples ===');
+  logger.info('=== QuickTransmit Contract Migration Examples ===');
 
   try {
     // Run examples

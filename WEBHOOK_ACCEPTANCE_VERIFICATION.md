@@ -2,7 +2,7 @@
 
 ## Overview
 
-A complete, production-ready webhook system has been implemented for the SwiftRemit remittance platform. This document verifies that all acceptance criteria have been met.
+A complete, production-ready webhook system has been implemented for the QuickTransmit remittance platform. This document verifies that all acceptance criteria have been met.
 
 ## ✅ Acceptance Criteria Met
 

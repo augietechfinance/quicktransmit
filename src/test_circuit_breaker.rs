@@ -6,14 +6,14 @@ extern crate std;
 
 use soroban_sdk::{testutils::Address as _, Address, Env};
 
-use crate::{SwiftRemitContract, SwiftRemitContractClient, types::PauseReason};
+use crate::{QuickTransmitContract, QuickTransmitContractClient, types::PauseReason};
 
-fn setup() -> (Env, SwiftRemitContractClient<'static>, Address) {
+fn setup() -> (Env, QuickTransmitContractClient<'static>, Address) {
     let env = Env::default();
     env.mock_all_auths();
-    let client = SwiftRemitContractClient::new(
+    let client = QuickTransmitContractClient::new(
         &env,
-        &env.register_contract(None, SwiftRemitContract {}),
+        &env.register_contract(None, QuickTransmitContract {}),
     );
     let admin = Address::generate(&env);
     let token = Address::generate(&env);

@@ -1,6 +1,6 @@
-# SwiftRemit Verification Service
+# QuickTransmit Verification Service
 
-Backend service for asset verification in the SwiftRemit remittance platform.
+Backend service for asset verification in the QuickTransmit remittance platform.
 
 ## Quick Start
 
@@ -25,7 +25,7 @@ npm start
 
 ## Webhooks
 
-SwiftRemit provides a webhook system for real-time notifications about remittance status changes.
+QuickTransmit provides a webhook system for real-time notifications about remittance status changes.
 
 ### Overview
 
@@ -205,7 +205,7 @@ app.post('/webhooks/remittance', (req, res) => {
 Test webhooks locally using the provided test script:
 
 ```bash
-# Terminal 1: Start SwiftRemit
+# Terminal 1: Start QuickTransmit
 npm run dev
 
 # Terminal 2: Start webhook test server
@@ -352,14 +352,14 @@ Then start the backend with tracing enabled (the default):
 OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318 npm run dev
 ```
 
-Open the Jaeger UI at **http://localhost:16686** and select the `swiftremit-backend` service.
+Open the Jaeger UI at **http://localhost:16686** and select the `quicktransmit-backend` service.
 
 ### Environment variables
 
 | Variable | Default | Description |
 |---|---|---|
 | `OTEL_ENABLED` | `true` | Set to `false` to disable tracing (e.g. in CI) |
-| `OTEL_SERVICE_NAME` | `swiftremit-backend` | Service name shown in traces |
+| `OTEL_SERVICE_NAME` | `quicktransmit-backend` | Service name shown in traces |
 | `OTEL_EXPORTER_OTLP_ENDPOINT` | `http://localhost:4318` | OTLP HTTP collector endpoint |
 
 ### Manual spans

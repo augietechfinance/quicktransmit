@@ -9,8 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Initial public release of `@swiftremit/sdk`
-- `SwiftRemitClient` with typed read/write wrappers for all contract methods
+- Initial public release of `@quicktransmit/sdk`
+- `QuickTransmitClient` with typed read/write wrappers for all contract methods
 - Governance helpers: `getProposal`, `getActiveProposals`, `voteOnProposal`, `executeProposal`
 - New high-level governance utilities:
   - Typed proposal builder functions (`buildUpdateFeeProposal`, `buildAddAdminProposal`, etc.)
@@ -20,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Memory-backed `proposalActionToScVal` encoder for compute-cost governance transactions
 - Utilities: `toStroops`, `fromStroops`, `USDC_MULTIPLIER`
 - Event subscription via Horizon SSE (`subscribeToRemittanceEvents`)
-- React Native wrapper (`@swiftremit/react-native-sdk`) with signer abstraction and hooks
+- React Native wrapper (`@quicktransmit/react-native-sdk`) with signer abstraction and hooks
 - Full TypeScript declaration files (`.d.ts`)
 
 ### Changed
@@ -35,4 +35,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - HTTP transport allowed only for localhost/127.0.0.1; warns on insecure RPC URLs
 
-[1.0.0]: https://github.com/GFOX/SwiftRemit/releases/tag/sdk-v1.0.0
+[1.0.0]: https://github.com/GFOX/QuickTransmit/releases/tag/sdk-v1.0.0

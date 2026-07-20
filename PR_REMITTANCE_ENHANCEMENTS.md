@@ -1,7 +1,7 @@
 # Pull Request: Remittance V2 Enhancements
 
 ## Summary
-This PR implements three major features to enhance the SwiftRemit ecosystem: Multi-currency support, a formal Dispute Resolution Mechanism, and an Agent Reputation Scoring system.
+This PR implements three major features to enhance the QuickTransmit ecosystem: Multi-currency support, a formal Dispute Resolution Mechanism, and an Agent Reputation Scoring system.
 
 ## Features Implemented
 

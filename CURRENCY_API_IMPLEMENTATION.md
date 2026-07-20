@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the implementation of a RESTful API endpoint that exposes all supported currencies and their formatting rules for the SwiftRemit platform.
+This document describes the implementation of a RESTful API endpoint that exposes all supported currencies and their formatting rules for the QuickTransmit platform.
 
 ## Requirements Met
 

@@ -1,4 +1,4 @@
-# SwiftRemit Currency Configuration API
+# QuickTransmit Currency Configuration API
 
 RESTful API service that exposes supported currencies and their formatting rules with dynamic configuration loading.
 

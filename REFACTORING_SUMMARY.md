@@ -1,8 +1,8 @@
-# SwiftRemit Soroban Contract Refactoring Summary
+# QuickTransmit Soroban Contract Refactoring Summary
 
 ## Executive Summary
 
-The SwiftRemit Soroban smart contracts have been refactored for production-readiness while strictly preserving all existing logic, storage schemas, and public APIs. This refactoring focused on code hygiene, error handling, security hardening, and documentation improvements.
+The QuickTransmit Soroban smart contracts have been refactored for production-readiness while strictly preserving all existing logic, storage schemas, and public APIs. This refactoring focused on code hygiene, error handling, security hardening, and documentation improvements.
 
 ## Changes Made
 
@@ -163,7 +163,7 @@ The SwiftRemit Soroban smart contracts have been refactored for production-readi
 
 ### Unit Tests
 ```bash
-cargo test --package swiftremit
+cargo test --package quicktransmit
 ```
 
 ### Integration Tests
@@ -225,7 +225,7 @@ This refactoring preserves all contributor implementations from the Stellar Wave
 
 ## Conclusion
 
-The SwiftRemit contract has been successfully refactored for production-readiness while maintaining 100% backward compatibility. All existing functionality is preserved, and the codebase is now more maintainable, secure, and well-documented.
+The QuickTransmit contract has been successfully refactored for production-readiness while maintaining 100% backward compatibility. All existing functionality is preserved, and the codebase is now more maintainable, secure, and well-documented.
 
 The refactoring focused on:
 - ✅ Code hygiene and organization

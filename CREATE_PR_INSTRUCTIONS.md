@@ -9,7 +9,7 @@ Status: Successfully pushed to origin
 
 Visit this URL to create the pull request:
 ```
-https://github.com/Sundayabel222/SwiftRemit/pull/new/feature/fee-service-refactor
+https://github.com/Sundayabel222/QuickTransmit/pull/new/feature/fee-service-refactor
 ```
 
 ## 📝 PR Details to Use

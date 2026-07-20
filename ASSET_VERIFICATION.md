@@ -1,6 +1,6 @@
 # Asset Verification System
 
-Comprehensive asset issuer verification system for SwiftRemit that validates Stellar assets against multiple trusted sources.
+Comprehensive asset issuer verification system for QuickTransmit that validates Stellar assets against multiple trusted sources.
 
 ## Overview
 
@@ -286,7 +286,7 @@ CREATE TABLE verified_assets (
 
 ```bash
 # Database
-DATABASE_URL=postgresql://user:password@localhost:5432/swiftremit
+DATABASE_URL=postgresql://user:password@localhost:5432/quicktransmit
 
 # Stellar
 STELLAR_NETWORK=testnet
@@ -325,7 +325,7 @@ npm start
 
 ```bash
 # PostgreSQL must be running
-psql -U postgres -c "CREATE DATABASE swiftremit;"
+psql -U postgres -c "CREATE DATABASE quicktransmit;"
 # Tables are created automatically on first run
 ```
 
@@ -334,11 +334,11 @@ psql -U postgres -c "CREATE DATABASE swiftremit;"
 ```bash
 # Build contract
 cargo build --target wasm32-unknown-unknown --release
-soroban contract optimize --wasm target/wasm32-unknown-unknown/release/swiftremit.wasm
+soroban contract optimize --wasm target/wasm32-unknown-unknown/release/quicktransmit.wasm
 
 # Deploy
 soroban contract deploy \
-  --wasm target/wasm32-unknown-unknown/release/swiftremit.optimized.wasm \
+  --wasm target/wasm32-unknown-unknown/release/quicktransmit.optimized.wasm \
   --source deployer \
   --network testnet
 ```
@@ -405,6 +405,6 @@ npm run test:integration
 ## Support
 
 For issues or questions:
-- GitHub Issues: [Report issues](https://github.com/yourusername/swiftremit/issues)
+- GitHub Issues: [Report issues](https://github.com/yourusername/quicktransmit/issues)
 - Documentation: See this file and inline code comments
 - Stellar Discord: https://discord.gg/stellar

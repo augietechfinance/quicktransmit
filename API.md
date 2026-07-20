@@ -1,6 +1,6 @@
-# SwiftRemit API Reference
+# QuickTransmit API Reference
 
-Complete API documentation for the SwiftRemit smart contract.
+Complete API documentation for the QuickTransmit smart contract.
 
 ## REST API Endpoints
 
@@ -142,7 +142,7 @@ soroban contract invoke \
 
 ## WebSocket — Real-time FX Rate Feed
 
-SwiftRemit exposes a Socket.io namespace at `/fx-rates` (mounted under the WebSocket path `/ws`) for real-time FX rate pushes. Clients subscribe to currency pairs and receive updates within 1 s of each cache refresh.
+QuickTransmit exposes a Socket.io namespace at `/fx-rates` (mounted under the WebSocket path `/ws`) for real-time FX rate pushes. Clients subscribe to currency pairs and receive updates within 1 s of each cache refresh.
 
 ### Connection
 

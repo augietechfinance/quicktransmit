@@ -12,7 +12,7 @@ March 28, 2026
 ### 1. API Service OpenAPI Spec ✅
 - ✅ Spec file exists at `api/openapi.yaml`
 - ✅ Valid OpenAPI 3.0.0 format
-- ✅ Contains correct title: "SwiftRemit API Service"
+- ✅ Contains correct title: "QuickTransmit API Service"
 - ✅ All required endpoints documented:
   - `/health` - Health check
   - `/api/currencies` - List currencies
@@ -24,7 +24,7 @@ March 28, 2026
 ### 2. Backend Service OpenAPI Spec ✅
 - ✅ Spec file exists at `backend/openapi.yaml`
 - ✅ Valid OpenAPI 3.0.0 format
-- ✅ Contains correct title: "SwiftRemit Backend Service"
+- ✅ Contains correct title: "QuickTransmit Backend Service"
 - ✅ All required endpoints documented:
   - `/health` - Health check
   - `/api/verification/{assetCode}/{issuer}` - Get asset verification

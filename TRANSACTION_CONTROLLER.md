@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Transaction Controller is a centralized service that orchestrates the complete transaction flow for SwiftRemit. It provides a robust, fault-tolerant system for processing remittances with built-in validation, KYC checks, rollback handling, and retry logic.
+The Transaction Controller is a centralized service that orchestrates the complete transaction flow for QuickTransmit. It provides a robust, fault-tolerant system for processing remittances with built-in validation, KYC checks, rollback handling, and retry logic.
 
 ## Architecture
 

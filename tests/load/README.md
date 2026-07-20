@@ -1,4 +1,4 @@
-# SwiftRemit Load Tests (k6)
+# QuickTransmit Load Tests (k6)
 
 Performance load tests targeting 500 RPS sustained for 5 minutes with p99 < 500 ms.
 
@@ -25,8 +25,8 @@ sudo apt-get update && sudo apt-get install k6
 
 ```bash
 k6 run tests/load/main.js \
-  -e API_URL=https://api.staging.swiftremit.io \
-  -e BACKEND_URL=https://backend.staging.swiftremit.io
+  -e API_URL=https://api.staging.quicktransmit.io \
+  -e BACKEND_URL=https://backend.staging.quicktransmit.io
 ```
 
 ### Individual scenarios
@@ -34,17 +34,17 @@ k6 run tests/load/main.js \
 ```bash
 # Remittance creation only
 k6 run tests/load/scenarios/remittance-create.js \
-  -e BACKEND_URL=https://backend.staging.swiftremit.io \
+  -e BACKEND_URL=https://backend.staging.quicktransmit.io \
   --vus 150 --duration 5m
 
 # Remittance listing only
 k6 run tests/load/scenarios/remittance-list.js \
-  -e API_URL=https://api.staging.swiftremit.io \
+  -e API_URL=https://api.staging.quicktransmit.io \
   --vus 300 --duration 5m
 
 # WebSocket connections only
 k6 run tests/load/scenarios/websocket.js \
-  -e API_URL=https://api.staging.swiftremit.io \
+  -e API_URL=https://api.staging.quicktransmit.io \
   --vus 50 --duration 5m
 ```
 

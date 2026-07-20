@@ -37,15 +37,15 @@ jobs:
           - service: backend
             context: ./backend
             dockerfile: ./backend/Dockerfile
-            image: swiftremit-backend
+            image: quicktransmit-backend
           - service: api
             context: ./api
             dockerfile: ./api/Dockerfile
-            image: swiftremit-api
+            image: quicktransmit-api
           - service: frontend
             context: ./frontend
             dockerfile: ./frontend/Dockerfile
-            image: swiftremit-frontend
+            image: quicktransmit-frontend
 
     steps:
       - uses: actions/checkout@v4

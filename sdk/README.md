@@ -1,22 +1,22 @@
-# @swiftremit/sdk
+# @quicktransmit/sdk
 
-TypeScript/JavaScript client SDK for the **SwiftRemit** Soroban smart contract on Stellar.
+TypeScript/JavaScript client SDK for the **QuickTransmit** Soroban smart contract on Stellar.
 
-> **New to SwiftRemit?** See the [Quickstart guide](./QUICKSTART.md) for a complete end-to-end Node.js example.
+> **New to QuickTransmit?** See the [Quickstart guide](./QUICKSTART.md) for a complete end-to-end Node.js example.
 
 ## Installation
 
 ```bash
-npm install @swiftremit/sdk @stellar/stellar-sdk
+npm install @quicktransmit/sdk @stellar/stellar-sdk
 ```
 
 ## Quick Start
 
 ```typescript
-import { SwiftRemitClient, Networks, RpcUrls, toStroops } from "@swiftremit/sdk";
+import { QuickTransmitClient, Networks, RpcUrls, toStroops } from "@quicktransmit/sdk";
 import { Keypair } from "@stellar/stellar-sdk";
 
-const client = new SwiftRemitClient({
+const client = new QuickTransmitClient({
   contractId: "CXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   networkPassphrase: Networks.TESTNET,
   rpcUrl: RpcUrls.TESTNET,
@@ -55,7 +55,7 @@ console.log("Remittance created:", result.hash);
 ### Client Initialization
 
 ```typescript
-const client = new SwiftRemitClient({
+const client = new QuickTransmitClient({
   contractId: string;
   networkPassphrase: string;
   rpcUrl: string;
@@ -114,7 +114,7 @@ All write methods return a `Transaction` that must be signed and submitted:
 ### Utilities
 
 ```typescript
-import { toStroops, fromStroops, USDC_MULTIPLIER } from "@swiftremit/sdk";
+import { toStroops, fromStroops, USDC_MULTIPLIER } from "@quicktransmit/sdk";
 
 toStroops(100);      // 100 USDC → 1_000_000_000n stroops
 fromStroops(1_000_000_000n); // → 100 USDC
@@ -127,7 +127,7 @@ fromStroops(1_000_000_000n); // → 100 USDC
 Retry settings are configured once in the client constructor and apply to all read operations (simulation calls):
 
 ```typescript
-const client = new SwiftRemitClient({
+const client = new QuickTransmitClient({
   contractId: "CXXX",
   networkPassphrase: Networks.TESTNET,
   rpcUrl: RpcUrls.TESTNET,
@@ -144,12 +144,12 @@ Only transient errors trigger a retry: HTTP 429, 503, `ECONNRESET`, `ECONNREFUSE
 Write operations (those that call `submitTransaction`) default to **no retries** because most are non-idempotent. You can override this globally or per-call:
 
 ```typescript
-import { RetryPolicies } from "@swiftremit/sdk";
-import type { RetryPolicy } from "@swiftremit/sdk";
+import { RetryPolicies } from "@quicktransmit/sdk";
+import type { RetryPolicy } from "@quicktransmit/sdk";
 
 // ── Global write default ───────────────────────────────────────────────────
 // Default: no retries for writes
-const client = new SwiftRemitClient({
+const client = new QuickTransmitClient({
   contractId: "CXXX",
   networkPassphrase: Networks.TESTNET,
   rpcUrl: RpcUrls.TESTNET,
@@ -177,7 +177,7 @@ await client.submitTransaction(cancelTx, senderKeypair); // 0 retries by default
 ### Custom retry policy
 
 ```typescript
-import type { RetryPolicy } from "@swiftremit/sdk";
+import type { RetryPolicy } from "@quicktransmit/sdk";
 
 const myPolicy: RetryPolicy = { retries: 2, delayMs: 300, backoffFactor: 2 };
 await client.submitTransaction(tx, keypair, { retryPolicy: myPolicy });
@@ -194,8 +194,8 @@ await client.submitTransaction(tx, keypair, { retryPolicy: myPolicy });
 Estimate fees before committing a transaction. Results are cached for 30 seconds per unique (sender, amount, corridor) combination:
 
 ```typescript
-import { toStroops, fromStroops } from "@swiftremit/sdk";
-import type { Corridor, FeeEstimate } from "@swiftremit/sdk";
+import { toStroops, fromStroops } from "@quicktransmit/sdk";
+import type { Corridor, FeeEstimate } from "@quicktransmit/sdk";
 
 const amount = toStroops(100); // 100 USDC in stroops
 const corridor: Corridor = { currency: "USDC", country: "NG" };
@@ -226,7 +226,7 @@ const estimate = await client.estimateFee(amount, corridor, senderAddress, {
 ```typescript
 interface FeeEstimate {
   amount: bigint;      // Requested send amount
-  platformFee: bigint; // SwiftRemit platform fee
+  platformFee: bigint; // QuickTransmit platform fee
   protocolFee: bigint; // Stellar protocol fee
   netAmount: bigint;   // Recipient receives (amount − totalFee)
   totalFee: bigint;    // platformFee + protocolFee
@@ -235,26 +235,26 @@ interface FeeEstimate {
 }
 ```
 
-## Testing with SwiftRemitMockClient
+## Testing with QuickTransmitMockClient
 
-SDK consumers can write integration tests without a live Stellar network by using `SwiftRemitMockClient` from the separate `@swiftremit/sdk/testing` entry point:
+SDK consumers can write integration tests without a live Stellar network by using `QuickTransmitMockClient` from the separate `@quicktransmit/sdk/testing` entry point:
 
 ```bash
-npm install @swiftremit/sdk
+npm install @quicktransmit/sdk
 ```
 
 ```typescript
-import { SwiftRemitMockClient } from "@swiftremit/sdk/testing";
-import type { MockTxResult } from "@swiftremit/sdk/testing";
+import { QuickTransmitMockClient } from "@quicktransmit/sdk/testing";
+import type { MockTxResult } from "@quicktransmit/sdk/testing";
 
 const AGENT = "GAGENT...";
 const SENDER = "GSENDER...";
 
 describe("payment service", () => {
-  let client: SwiftRemitMockClient;
+  let client: QuickTransmitMockClient;
 
   beforeEach(() => {
-    client = new SwiftRemitMockClient({ feeBps: 100 }); // 1% platform fee
+    client = new QuickTransmitMockClient({ feeBps: 100 }); // 1% platform fee
     client.seedAgent(AGENT);
   });
 
@@ -287,7 +287,7 @@ describe("payment service", () => {
 ### Seed helpers (chainable)
 
 ```typescript
-const client = new SwiftRemitMockClient()
+const client = new QuickTransmitMockClient()
   .seedAgent("GAGENT...")      // pre-register an agent
   .seedToken("GUSDC...")       // whitelist a token
   .seedAdmin("GADMIN...")      // add an admin
@@ -312,15 +312,15 @@ Use TypeScript structural typing to inject the mock wherever your production cod
 
 ```typescript
 // Production service accepts any compatible shape
-type RemittanceReader = Pick<SwiftRemitClient, "getRemittance" | "getRemittancesBySender">;
+type RemittanceReader = Pick<QuickTransmitClient, "getRemittance" | "getRemittancesBySender">;
 
 function createDashboard(client: RemittanceReader) { /* ... */ }
 
 // In tests
-createDashboard(new SwiftRemitMockClient());
+createDashboard(new QuickTransmitMockClient());
 
 // In production
-createDashboard(new SwiftRemitClient(opts));
+createDashboard(new QuickTransmitClient(opts));
 ```
 
 ## Governance
@@ -387,7 +387,7 @@ import type {
   BatchCreateEntry,
   CreateRemittanceParams,
   SettlementConfig,
-} from "@swiftremit/sdk";
+} from "@quicktransmit/sdk";
 ```
 
 ## Real-Time Event Subscription
@@ -395,9 +395,9 @@ import type {
 Subscribe to contract events without polling `getRemittance` repeatedly:
 
 ```typescript
-import { SwiftRemitClient, Networks, RpcUrls } from "@swiftremit/sdk";
+import { QuickTransmitClient, Networks, RpcUrls } from "@quicktransmit/sdk";
 
-const client = new SwiftRemitClient({
+const client = new QuickTransmitClient({
   contractId: "CXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   networkPassphrase: Networks.TESTNET,
   rpcUrl: RpcUrls.TESTNET,
@@ -451,10 +451,10 @@ The subscription reconnects automatically with exponential back-off (1 s → 30 
 ## Example: Full Remittance Flow
 
 ```typescript
-import { SwiftRemitClient, Networks, RpcUrls, toStroops } from "@swiftremit/sdk";
+import { QuickTransmitClient, Networks, RpcUrls, toStroops } from "@quicktransmit/sdk";
 import { Keypair } from "@stellar/stellar-sdk";
 
-const client = new SwiftRemitClient({
+const client = new QuickTransmitClient({
   contractId: "CXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   networkPassphrase: Networks.TESTNET,
   rpcUrl: RpcUrls.TESTNET,
@@ -490,16 +490,16 @@ in a single transaction. Each entry can optionally include `currency` and
 
 ```typescript
 import {
-  SwiftRemitClient,
+  QuickTransmitClient,
   MAX_BATCH_SIZE,
   Networks,
   RpcUrls,
   toStroops,
-} from "@swiftremit/sdk";
-import type { BatchCreateEntry } from "@swiftremit/sdk";
+} from "@quicktransmit/sdk";
+import type { BatchCreateEntry } from "@quicktransmit/sdk";
 import { Keypair } from "@stellar/stellar-sdk";
 
-const client = new SwiftRemitClient({
+const client = new QuickTransmitClient({
   contractId: "CXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   networkPassphrase: Networks.TESTNET,
   rpcUrl: RpcUrls.TESTNET,
@@ -532,22 +532,22 @@ See [CHANGELOG.md](./CHANGELOG.md) for version history and migration guides.
 
 A React Native wrapper is available in `sdk/react-native/`. It wraps the core TypeScript SDK with:
 
-- A `SwiftRemitSigner` interface so any wallet (expo-secure-store, react-native-keychain, WalletConnect) can be plugged in without changing call sites.
-- `SwiftRemitRNClient` — extends `SwiftRemitClient` with a `submitSigned(tx)` method that signs via the injected signer.
+- A `QuickTransmitSigner` interface so any wallet (expo-secure-store, react-native-keychain, WalletConnect) can be plugged in without changing call sites.
+- `QuickTransmitRNClient` — extends `QuickTransmitClient` with a `submitSigned(tx)` method that signs via the injected signer.
 - React hooks: `useCreateRemittance`, `useNetworkToggle`.
 
 ### Installation
 
 ```bash
-npm install @swiftremit/react-native-sdk @swiftremit/sdk @stellar/stellar-sdk
+npm install @quicktransmit/react-native-sdk @quicktransmit/sdk @stellar/stellar-sdk
 # or
-yarn add @swiftremit/react-native-sdk @swiftremit/sdk @stellar/stellar-sdk
+yarn add @quicktransmit/react-native-sdk @quicktransmit/sdk @stellar/stellar-sdk
 ```
 
 ### Quick Start
 
 ```typescript
-import { SwiftRemitRNClient, Networks, RpcUrls, toStroops } from '@swiftremit/react-native-sdk';
+import { QuickTransmitRNClient, Networks, RpcUrls, toStroops } from '@quicktransmit/react-native-sdk';
 import * as SecureStore from 'expo-secure-store';
 import { Keypair, TransactionBuilder } from '@stellar/stellar-sdk';
 
@@ -567,7 +567,7 @@ const signer = {
 };
 
 // 2. Create the client
-const client = new SwiftRemitRNClient({
+const client = new QuickTransmitRNClient({
   contractId: 'CXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
   networkPassphrase: Networks.TESTNET,
   rpcUrl: RpcUrls.TESTNET,
@@ -588,7 +588,7 @@ console.log('Remittance created:', result.hash);
 ### Hooks
 
 ```tsx
-import { useCreateRemittance, useNetworkToggle, toStroops } from '@swiftremit/react-native-sdk';
+import { useCreateRemittance, useNetworkToggle, toStroops } from '@quicktransmit/react-native-sdk';
 
 function SendScreen({ client }) {
   const { createRemittance, loading, error } = useCreateRemittance(client);

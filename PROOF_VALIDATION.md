@@ -1,6 +1,6 @@
 # Proof Validation
 
-SwiftRemit validates payout confirmation using a deterministic commitment proof.
+QuickTransmit validates payout confirmation using a deterministic commitment proof.
 
 ## Overview
 

@@ -1,13 +1,13 @@
-# SwiftRemit Testnet Setup Guide
+# QuickTransmit Testnet Setup Guide
 
-Complete guide for getting testnet XLM and USDC, setting up a local sandbox, and running the full SwiftRemit remittance flow end-to-end.
+Complete guide for getting testnet XLM and USDC, setting up a local sandbox, and running the full QuickTransmit remittance flow end-to-end.
 
 ## Quick Start Checklist
 
 - [ ] Install Soroban CLI
 - [ ] Get testnet XLM from Friendbot
 - [ ] Get testnet USDC tokens
-- [ ] Deploy SwiftRemit contract
+- [ ] Deploy QuickTransmit contract
 - [ ] Set up wallet (Freighter)
 - [ ] Run end-to-end remittance flow
 
@@ -132,14 +132,14 @@ soroban contract invoke \
   --id $SENDER_ADDRESS
 ```
 
-## Step 3: Deploy SwiftRemit Contract
+## Step 3: Deploy QuickTransmit Contract
 
 ### Automated Deployment
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/SwiftRemit.git
-cd SwiftRemit
+git clone https://github.com/yourusername/QuickTransmit.git
+cd QuickTransmit
 
 # Run deployment script
 chmod +x deploy.sh
@@ -158,11 +158,11 @@ This will:
 ```bash
 # Build contract
 cargo build --target wasm32-unknown-unknown --release
-soroban contract optimize --wasm target/wasm32-unknown-unknown/release/swiftremit.wasm
+soroban contract optimize --wasm target/wasm32-unknown-unknown/release/quicktransmit.wasm
 
 # Deploy contract
 CONTRACT_ID=$(soroban contract deploy \
-  --wasm target/wasm32-unknown-unknown/release/swiftremit.optimized.wasm \
+  --wasm target/wasm32-unknown-unknown/release/quicktransmit.optimized.wasm \
   --source sender \
   --network testnet)
 
@@ -325,7 +325,7 @@ soroban contract invoke \
 cp .env.testnet .env.testnet.local
 
 # Edit .env.testnet.local with your values:
-# SWIFTREMIT_CONTRACT_ID=your_contract_id
+# QUICKTRANSMIT_CONTRACT_ID=your_contract_id
 # USDC_TOKEN_ID=your_usdc_id
 # TESTNET_SENDER_SECRET=your_sender_secret
 # TESTNET_AGENT_SECRET=your_agent_secret
@@ -459,7 +459,7 @@ SOROBAN_RPC_URL=https://soroban-testnet.stellar.org:443
 HORIZON_URL=https://horizon-testnet.stellar.org
 
 # Contract Configuration
-SWIFTREMIT_CONTRACT_ID=your_contract_id
+QUICKTRANSMIT_CONTRACT_ID=your_contract_id
 USDC_TOKEN_ID=your_usdc_token_id
 DEFAULT_FEE_BPS=250
 
@@ -503,12 +503,12 @@ When moving to mainnet:
 - **Testnet Explorer**: https://stellar.expert/explorer/testnet
 - **Friendbot**: https://friendbot.stellar.org/
 - **Laboratory**: https://laboratory.stellar.org/
-- **SwiftRemit Repository**: https://github.com/yourusername/SwiftRemit
+- **QuickTransmit Repository**: https://github.com/yourusername/QuickTransmit
 
 ## Support
 
 For issues and questions:
-- **GitHub Issues**: [Create an issue](https://github.com/yourusername/SwiftRemit/issues)
+- **GitHub Issues**: [Create an issue](https://github.com/yourusername/QuickTransmit/issues)
 - **Stellar Discord**: https://discord.gg/stellar
 - **Documentation**: See project README and DEPLOYMENT.md
 

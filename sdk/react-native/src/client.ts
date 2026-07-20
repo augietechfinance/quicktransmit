@@ -1,8 +1,8 @@
 /**
- * SwiftRemitRNClient — React Native wrapper around the core TypeScript SDK.
+ * QuickTransmitRNClient — React Native wrapper around the core TypeScript SDK.
  *
  * Differences from the Node SDK:
- * - Accepts a `SwiftRemitSigner` instead of a raw `Keypair` so wallet
+ * - Accepts a `QuickTransmitSigner` instead of a raw `Keypair` so wallet
  *   implementations (expo-secure-store, WalletConnect, hardware wallets)
  *   can be swapped without changing call sites.
  * - `submitSigned` handles the sign → submit flow using the injected signer.
@@ -10,22 +10,22 @@
  */
 
 import { TransactionBuilder } from '@stellar/stellar-sdk';
-import { SwiftRemitClient } from '@swiftremit/sdk';
-import type { SwiftRemitClientOptions } from '@swiftremit/sdk';
-import type { SwiftRemitSigner } from './signer.js';
+import { QuickTransmitClient } from '@quicktransmit/sdk';
+import type { QuickTransmitClientOptions } from '@quicktransmit/sdk';
+import type { QuickTransmitSigner } from './signer.js';
 
-export type { SwiftRemitSigner };
+export type { QuickTransmitSigner };
 
-export interface SwiftRemitRNClientOptions extends SwiftRemitClientOptions {
+export interface QuickTransmitRNClientOptions extends QuickTransmitClientOptions {
   /** Wallet signer implementation. */
-  signer: SwiftRemitSigner;
+  signer: QuickTransmitSigner;
 }
 
-export class SwiftRemitRNClient extends SwiftRemitClient {
-  private readonly signer: SwiftRemitSigner;
+export class QuickTransmitRNClient extends QuickTransmitClient {
+  private readonly signer: QuickTransmitSigner;
   private readonly _networkPassphrase: string;
 
-  constructor(options: SwiftRemitRNClientOptions) {
+  constructor(options: QuickTransmitRNClientOptions) {
     super(options);
     this.signer = options.signer;
     this._networkPassphrase = options.networkPassphrase;

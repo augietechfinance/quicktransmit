@@ -269,7 +269,7 @@ npm install
 ### 2. Database Migration
 
 ```bash
-psql -U postgres -d swiftremit < migrations/webhook_schema.sql
+psql -U postgres -d quicktransmit < migrations/webhook_schema.sql
 ```
 
 ### 3. Register Anchor
@@ -319,7 +319,7 @@ const payload = JSON.stringify({
 
 const signature = keypair.sign(Buffer.from(payload)).toString('base64');
 
-await fetch('https://swiftremit.com/webhooks/anchor', {
+await fetch('https://quicktransmit.com/webhooks/anchor', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',

@@ -1,4 +1,4 @@
-# SwiftRemit Deployment Guide
+# QuickTransmit Deployment Guide
 
 ## Frontend Deployment
 
@@ -10,7 +10,7 @@
 2. **Sign in** with your GitHub account
 3. **Import Project**:
    - Click "Add New..." → "Project"
-   - Select your GitHub repository: `Haroldwonder/SwiftRemit`
+   - Select your GitHub repository: `Haroldwonder/QuickTransmit`
    - Select branch: `refactor/production-readiness-soroban`
 4. **Configure Project**:
    - Framework Preset: Vite
@@ -28,7 +28,7 @@
    ```
 6. **Deploy**: Click "Deploy"
 
-Your site will be live at: `https://swiftremit-[random].vercel.app`
+Your site will be live at: `https://quicktransmit-[random].vercel.app`
 
 #### Option 2: Deploy via Vercel CLI
 
@@ -37,7 +37,7 @@ Your site will be live at: `https://swiftremit-[random].vercel.app`
 npm install -g vercel
 
 # Navigate to frontend directory
-cd SwiftRemit/frontend
+cd QuickTransmit/frontend
 
 # Login to Vercel
 vercel login
@@ -49,7 +49,7 @@ vercel
 # - Set up and deploy? Yes
 # - Which scope? Your account
 # - Link to existing project? No
-# - Project name? swiftremit-frontend
+# - Project name? quicktransmit-frontend
 # - Directory? ./
 # - Override settings? No
 
@@ -73,7 +73,7 @@ vercel
 2. **Sign in** with GitHub
 3. **Add new site** → "Import an existing project"
 4. **Connect to Git provider**: GitHub
-5. **Select repository**: `Haroldwonder/SwiftRemit`
+5. **Select repository**: `Haroldwonder/QuickTransmit`
 6. **Configure**:
    - Branch: `refactor/production-readiness-soroban`
    - Base directory: `frontend`
@@ -82,7 +82,7 @@ vercel
 7. **Environment variables**: Add the same as Vercel
 8. **Deploy**
 
-Your site will be live at: `https://swiftremit-[random].netlify.app`
+Your site will be live at: `https://quicktransmit-[random].netlify.app`
 
 #### Via Netlify CLI
 
@@ -91,7 +91,7 @@ Your site will be live at: `https://swiftremit-[random].netlify.app`
 npm install -g netlify-cli
 
 # Navigate to frontend
-cd SwiftRemit/frontend
+cd QuickTransmit/frontend
 
 # Login
 netlify login
@@ -107,7 +107,7 @@ netlify deploy --prod
 ### Alternative: GitHub Pages
 
 1. **Enable GitHub Pages**:
-   - Go to: https://github.com/Haroldwonder/SwiftRemit/settings/pages
+   - Go to: https://github.com/Haroldwonder/QuickTransmit/settings/pages
    - Source: Deploy from a branch
    - Branch: `refactor/production-readiness-soroban`
    - Folder: `/frontend` (if available) or `/` (root)
@@ -142,7 +142,7 @@ netlify deploy --prod
              publish_dir: ./frontend/dist
    ```
 
-Your site will be at: `https://haroldwonder.github.io/SwiftRemit/`
+Your site will be at: `https://haroldwonder.github.io/QuickTransmit/`
 
 ---
 
@@ -169,14 +169,14 @@ Your site will be at: `https://haroldwonder.github.io/SwiftRemit/`
 
 ```bash
 # Navigate to contract directory
-cd SwiftRemit
+cd QuickTransmit
 
 # Build the contract
 stellar contract build
 
 # Deploy to testnet
 stellar contract deploy \
-  --wasm target/wasm32-unknown-unknown/release/swiftremit.wasm \
+  --wasm target/wasm32-unknown-unknown/release/quicktransmit.wasm \
   --source admin \
   --network testnet
 
@@ -392,12 +392,12 @@ Copy the relevant example file and fill in production values before deploying.
 
 | Variable | Required | Description |
 |---|---|---|
-| `DATABASE_URL` | ✅ | PostgreSQL connection string, e.g. `postgresql://user:pass@host:5432/swiftremit` |
+| `DATABASE_URL` | ✅ | PostgreSQL connection string, e.g. `postgresql://user:pass@host:5432/quicktransmit` |
 | `STELLAR_NETWORK` | ✅ | Stellar network to connect to: `testnet` or `mainnet` |
 | `HORIZON_URL` | ✅ | Horizon API endpoint, e.g. `https://horizon.stellar.org` |
 | `SOROBAN_RPC_URL` | ✅ | Soroban RPC endpoint, e.g. `https://soroban-rpc.mainnet.stellar.gateway.fm` |
 | `NETWORK_PASSPHRASE` | ✅ | Stellar network passphrase (e.g. `Public Global Stellar Network ; September 2015`) |
-| `CONTRACT_ID` | ✅ | Deployed SwiftRemit contract address |
+| `CONTRACT_ID` | ✅ | Deployed QuickTransmit contract address |
 | `ADMIN_SECRET_KEY` | ✅ | Stellar secret key for the admin account (keep secret) |
 | `PORT` | ✅ | Port the backend HTTP server listens on (default: `3000`) |
 | `NODE_ENV` | ✅ | Runtime environment: `production` |
@@ -435,7 +435,7 @@ See [`api/.env.example`](api/.env.example) for the full list with inline comment
 | `VITE_NETWORK` | ✅ | Stellar network: `testnet` or `mainnet` |
 | `VITE_HORIZON_URL` | ✅ | Horizon API endpoint |
 | `VITE_SOROBAN_RPC_URL` | ✅ | Soroban RPC endpoint |
-| `VITE_CONTRACT_ID` | ✅ | Deployed SwiftRemit contract address |
+| `VITE_CONTRACT_ID` | ✅ | Deployed QuickTransmit contract address |
 | `VITE_USDC_ISSUER` | ✅ | USDC issuer public key on the target network |
 | `VITE_EURC_ISSUER` | ❌ | EURC issuer public key (optional, for EURC support) |
 | `VITE_USDC_TOKEN_ID` | ✅ | USDC token contract ID on Soroban |
@@ -452,14 +452,14 @@ See [`frontend/.env.example`](frontend/.env.example) for the full list with inli
 ## Support
 
 - **Documentation**: See README.md files in each directory
-- **Issues**: https://github.com/Haroldwonder/SwiftRemit/issues
+- **Issues**: https://github.com/Haroldwonder/QuickTransmit/issues
 - **Stellar Discord**: https://discord.gg/stellar
 
 ---
 
 ## Quick Links
 
-- **Repository**: https://github.com/Haroldwonder/SwiftRemit
+- **Repository**: https://github.com/Haroldwonder/QuickTransmit
 - **Branch**: refactor/production-readiness-soroban
 - **Stellar Testnet**: https://horizon-testnet.stellar.org
 - **Freighter Wallet**: https://www.freighter.app/

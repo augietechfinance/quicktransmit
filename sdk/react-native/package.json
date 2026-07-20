@@ -1,7 +1,7 @@
 {
-  "name": "@swiftremit/react-native-sdk",
+  "name": "@quicktransmit/react-native-sdk",
   "version": "1.0.0",
-  "description": "React Native wrapper for the SwiftRemit TypeScript SDK",
+  "description": "React Native wrapper for the QuickTransmit TypeScript SDK",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": ["dist", "src"],
@@ -9,7 +9,7 @@
     "build": "tsc",
     "test": "jest --passWithNoTests"
   },
-  "keywords": ["stellar", "soroban", "swiftremit", "react-native", "remittance"],
+  "keywords": ["stellar", "soroban", "quicktransmit", "react-native", "remittance"],
   "license": "MIT",
   "peerDependencies": {
     "@stellar/stellar-sdk": ">=13.0.0",
@@ -17,7 +17,7 @@
     "react-native": ">=0.72.0"
   },
   "dependencies": {
-    "@swiftremit/sdk": "*"
+    "@quicktransmit/sdk": "*"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

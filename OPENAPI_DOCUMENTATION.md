@@ -1,10 +1,10 @@
 # OpenAPI Documentation
 
-This document describes the OpenAPI 3.0 specification implementation for SwiftRemit services.
+This document describes the OpenAPI 3.0 specification implementation for QuickTransmit services.
 
 ## Overview
 
-SwiftRemit now provides machine-readable API specifications for both services:
+QuickTransmit now provides machine-readable API specifications for both services:
 - **API Service** (`api/`): Currency configuration and anchor management
 - **Backend Service** (`backend/`): Asset verification, KYC, and webhook handling
 
@@ -201,4 +201,4 @@ For questions or issues with the API specifications:
 1. Check this documentation
 2. Review the OpenAPI spec files
 3. Test endpoints using Swagger UI
-4. Contact the SwiftRemit development team
+4. Contact the QuickTransmit development team

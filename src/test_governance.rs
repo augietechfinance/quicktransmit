@@ -13,19 +13,19 @@ use soroban_sdk::{
 };
 
 use crate::{
-    ContractError, Proposal, ProposalAction, ProposalState, SwiftRemitContract,
-    SwiftRemitContractClient,
+    ContractError, Proposal, ProposalAction, ProposalState, QuickTransmitContract,
+    QuickTransmitContractClient,
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Test helpers
 // ─────────────────────────────────────────────────────────────────────────────
 
-fn setup_env() -> (Env, SwiftRemitContractClient<'static>) {
+fn setup_env() -> (Env, QuickTransmitContractClient<'static>) {
     let env = Env::default();
     env.mock_all_auths();
-    let contract_id = env.register_contract(None, SwiftRemitContract);
-    let client = SwiftRemitContractClient::new(&env, &contract_id);
+    let contract_id = env.register_contract(None, QuickTransmitContract);
+    let client = QuickTransmitContractClient::new(&env, &contract_id);
     (env, client)
 }
 
@@ -35,7 +35,7 @@ fn default_token(env: &Env) -> Address {
 
 fn initialize(
     env: &Env,
-    client: &SwiftRemitContractClient,
+    client: &QuickTransmitContractClient,
     admin: &Address,
 ) {
     let token = default_token(env);

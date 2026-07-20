@@ -1,7 +1,7 @@
 # Landing Page Design
 
-Figma (Desktop): https://www.figma.com/design/2wymodr5O54BzxyjNw8jrG/Swift-Remit-UI?node-id=1-5&t=rSlnndhCYxCpgNbZ-0  
-Figma (Mobile): https://www.figma.com/design/2wymodr5O54BzxyjNw8jrG/Swift-Remit-UI?node-id=10-15&t=iffnEBNaS5DOq9O1-0
+Figma (Desktop): https://www.figma.com/design/2wymodr5O54BzxyjNw8jrG/Quick-Transmit-UI?node-id=1-5&t=rSlnndhCYxCpgNbZ-0  
+Figma (Mobile): https://www.figma.com/design/2wymodr5O54BzxyjNw8jrG/Quick-Transmit-UI?node-id=10-15&t=iffnEBNaS5DOq9O1-0
 
 ## Design Vision
 

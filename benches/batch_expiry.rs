@@ -1,13 +1,13 @@
 use criterion::{black_box, criterion_group, criterion_main, Criterion, BenchmarkId};
 use soroban_sdk::{Env, Address, Vec, testutils::{Address as _, Ledger}};
-use swiftremit::{SwiftRemitContract, SwiftRemitContractClient};
+use quicktransmit::{QuickTransmitContract, QuickTransmitContractClient};
 
 fn setup_contract_with_expired_remittances(
     env: &Env,
     count: u32,
-) -> (SwiftRemitContractClient, Vec<u64>) {
-    let contract_id = env.register_contract(None, SwiftRemitContract);
-    let client = SwiftRemitContractClient::new(env, &contract_id);
+) -> (QuickTransmitContractClient, Vec<u64>) {
+    let contract_id = env.register_contract(None, QuickTransmitContract);
+    let client = QuickTransmitContractClient::new(env, &contract_id);
     
     let admin = Address::generate(env);
     let usdc_token = Address::generate(env);

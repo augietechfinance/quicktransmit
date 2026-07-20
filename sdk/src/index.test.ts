@@ -16,7 +16,7 @@ describe("toStroops / fromStroops", () => {
   });
 });
 
-import { SwiftRemitError, ErrorCode, parseContractError } from "../src/errors.js";
+import { QuickTransmitError, ErrorCode, parseContractError } from "../src/errors.js";
 
 describe("ErrorCode enum", () => {
   it("has the correct numeric values for key codes", () => {
@@ -38,30 +38,30 @@ describe("ErrorCode enum", () => {
   });
 });
 
-describe("SwiftRemitError", () => {
+describe("QuickTransmitError", () => {
   it("is an instance of Error", () => {
-    const err = new SwiftRemitError(ErrorCode.Unauthorized, "raw");
+    const err = new QuickTransmitError(ErrorCode.Unauthorized, "raw");
     expect(err).toBeInstanceOf(Error);
-    expect(err).toBeInstanceOf(SwiftRemitError);
+    expect(err).toBeInstanceOf(QuickTransmitError);
   });
 
-  it("sets name to SwiftRemitError", () => {
-    const err = new SwiftRemitError(ErrorCode.ContractPaused, "raw");
-    expect(err.name).toBe("SwiftRemitError");
+  it("sets name to QuickTransmitError", () => {
+    const err = new QuickTransmitError(ErrorCode.ContractPaused, "raw");
+    expect(err.name).toBe("QuickTransmitError");
   });
 
   it("exposes the error code", () => {
-    const err = new SwiftRemitError(ErrorCode.DailySendLimitExceeded, "raw");
+    const err = new QuickTransmitError(ErrorCode.DailySendLimitExceeded, "raw");
     expect(err.code).toBe(ErrorCode.DailySendLimitExceeded);
   });
 
   it("exposes the raw error string", () => {
-    const err = new SwiftRemitError(ErrorCode.InvalidFeeBps, "Simulation failed: ContractError(4)");
+    const err = new QuickTransmitError(ErrorCode.InvalidFeeBps, "Simulation failed: ContractError(4)");
     expect(err.rawError).toBe("Simulation failed: ContractError(4)");
   });
 
   it("has a human-readable message", () => {
-    const err = new SwiftRemitError(ErrorCode.InvalidFeeBps, "raw");
+    const err = new QuickTransmitError(ErrorCode.InvalidFeeBps, "raw");
     expect(err.message).toContain("basis points");
   });
 });

@@ -1,11 +1,11 @@
-# SwiftRemit SDK — Quickstart
+# QuickTransmit SDK — Quickstart
 
 End-to-end Node.js example: connect wallet → create remittance → monitor status → confirm payout.
 
 ## Prerequisites
 
 ```bash
-npm install @swiftremit/sdk @stellar/stellar-sdk
+npm install @quicktransmit/sdk @stellar/stellar-sdk
 ```
 
 Set the following environment variables (or copy `.env.testnet` from the repo root):
@@ -22,13 +22,13 @@ USDC_TOKEN=CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA
 ## Complete example
 
 ```typescript
-import { SwiftRemitClient, toStroops, fromStroops } from "@swiftremit/sdk";
+import { QuickTransmitClient, toStroops, fromStroops } from "@quicktransmit/sdk";
 import { Keypair, Asset, TransactionBuilder, Networks, Operation } from "@stellar/stellar-sdk";
 import * as dotenv from "dotenv";
 
 dotenv.config();
 
-const client = new SwiftRemitClient({
+const client = new QuickTransmitClient({
   contractId: process.env.CONTRACT_ID!,
   networkPassphrase: process.env.NETWORK_PASSPHRASE!,
   rpcUrl: process.env.SOROBAN_RPC_URL!,

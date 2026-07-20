@@ -23,7 +23,7 @@ export type SignTransactionFn = (
  * import * as SecureStore from 'expo-secure-store';
  * import { Keypair, TransactionBuilder } from '@stellar/stellar-sdk';
  *
- * const signer: SwiftRemitSigner = {
+ * const signer: QuickTransmitSigner = {
  *   async getPublicKey() {
  *     return await SecureStore.getItemAsync('stellar_public_key') ?? '';
  *   },
@@ -37,7 +37,7 @@ export type SignTransactionFn = (
  *   },
  * };
  */
-export interface SwiftRemitSigner {
+export interface QuickTransmitSigner {
   /** Return the Stellar public key (G…) for the active account. */
   getPublicKey(): Promise<string>;
   /** Sign a transaction XDR and return the signed XDR. */

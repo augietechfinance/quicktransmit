@@ -1,18 +1,18 @@
 # Login & Auth UI
 
-Figma: https://www.figma.com/design/2wymodr5O54BzxyjNw8jrG/Swift-Remit-UI?node-id=1-5&t=rSlnndhCYxCpgNbZ-0
+Figma: https://www.figma.com/design/2wymodr5O54BzxyjNw8jrG/Quick-Transmit-UI?node-id=1-5&t=rSlnndhCYxCpgNbZ-0
 
 ## 1. Login Screen
 
 **Heading:** Welcome Back  
-**Sub-heading:** Securely access your Swift Remit dashboard.
+**Sub-heading:** Securely access your Quick Transmit dashboard.
 
 | Element | Value |
 |---------|-------|
 | Fields | Email or Username, Password |
 | Primary Button | Login to Account → |
 | Secondary | Biometric Login |
-| Footer | New to Swift Remit? Create an account |
+| Footer | New to Quick Transmit? Create an account |
 
 ## 2. Sign Up Screen
 

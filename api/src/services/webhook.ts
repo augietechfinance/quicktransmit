@@ -73,8 +73,8 @@ export async function deliverWebhook(
         timeout: timeoutMs,
         headers: {
           'Content-Type': 'application/json',
-          'X-SwiftRemit-Event': payload.event,
-          'X-SwiftRemit-TxId': payload.txId,
+          'X-QuickTransmit-Event': payload.event,
+          'X-QuickTransmit-TxId': payload.txId,
         },
       });
 

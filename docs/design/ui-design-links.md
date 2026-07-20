@@ -1,6 +1,6 @@
 # UI Design Figma Links
 
-Quick reference for core SwiftRemit Figma design files.
+Quick reference for core QuickTransmit Figma design files.
 
 | Screen | Figma Link |
 |--------|-----------|

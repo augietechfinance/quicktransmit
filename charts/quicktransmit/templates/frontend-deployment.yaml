@@ -1,30 +1,30 @@
-{{- $svc := .Values.api }}
+{{- $svc := .Values.frontend }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "swiftremit.fullname" . }}-api
+  name: {{ include "quicktransmit.fullname" . }}-frontend
   labels:
-    {{- include "swiftremit.labels" . | nindent 4 }}
-    app.kubernetes.io/component: api
+    {{- include "quicktransmit.labels" . | nindent 4 }}
+    app.kubernetes.io/component: frontend
 spec:
   {{- if not $svc.autoscaling.enabled }}
   replicas: {{ $svc.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "swiftremit.selectorLabels" (merge (dict "component" "api") .) | nindent 6 }}
+      {{- include "quicktransmit.selectorLabels" (merge (dict "component" "frontend") .) | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "swiftremit.selectorLabels" (merge (dict "component" "api") .) | nindent 8 }}
+        {{- include "quicktransmit.selectorLabels" (merge (dict "component" "frontend") .) | nindent 8 }}
     spec:
       {{- with .Values.global.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       containers:
-        - name: api
-          image: {{ include "swiftremit.image" (dict "global" .Values.global "image" $svc.image) }}
+        - name: frontend
+          image: {{ include "quicktransmit.image" (dict "global" .Values.global "image" $svc.image) }}
           imagePullPolicy: {{ $svc.image.pullPolicy }}
           ports:
             - name: http
@@ -32,9 +32,11 @@ spec:
               protocol: TCP
           envFrom:
             - configMapRef:
-                name: {{ include "swiftremit.fullname" . }}-api
+                name: {{ include "quicktransmit.fullname" . }}-frontend
+            {{- if $svc.secret }}
             - secretRef:
-                name: {{ include "swiftremit.fullname" . }}-api
+                name: {{ include "quicktransmit.fullname" . }}-frontend
+            {{- end }}
           livenessProbe:
             {{- toYaml $svc.livenessProbe | nindent 12 }}
           readinessProbe:

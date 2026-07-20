@@ -1,14 +1,14 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "swiftremit.name" -}}
+{{- define "quicktransmit.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Create a default fully qualified app name.
 */}}
-{{- define "swiftremit.fullname" -}}
+{{- define "quicktransmit.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -20,23 +20,23 @@ Create a default fully qualified app name.
 {{/*
 Chart label.
 */}}
-{{- define "swiftremit.chart" -}}
+{{- define "quicktransmit.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels.
 */}}
-{{- define "swiftremit.labels" -}}
-helm.sh/chart: {{ include "swiftremit.chart" . }}
+{{- define "quicktransmit.labels" -}}
+helm.sh/chart: {{ include "quicktransmit.chart" . }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
 {{/*
 Component selector labels — pass component name as $.component
 */}}
-{{- define "swiftremit.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "swiftremit.name" . }}
+{{- define "quicktransmit.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "quicktransmit.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/component: {{ .component }}
 {{- end }}
@@ -44,7 +44,7 @@ app.kubernetes.io/component: {{ .component }}
 {{/*
 Image helper — prepend global registry when set.
 */}}
-{{- define "swiftremit.image" -}}
+{{- define "quicktransmit.image" -}}
 {{- $reg := .global.imageRegistry -}}
 {{- if $reg }}
 {{- printf "%s/%s:%s" $reg .image.repository .image.tag }}

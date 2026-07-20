@@ -1,5 +1,5 @@
 /**
- * End-to-end integration tests for the SwiftRemit remittance lifecycle.
+ * End-to-end integration tests for the QuickTransmit remittance lifecycle.
  *
  * All external I/O (PostgreSQL, Stellar/Soroban) is replaced with an
  * in-memory mock so the suite runs in CI with zero infrastructure.

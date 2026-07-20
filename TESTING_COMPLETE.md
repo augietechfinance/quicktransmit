@@ -193,7 +193,7 @@ Duration: ~500ms
 ## Next Steps
 
 ### 1. Create Pull Request
-Visit: https://github.com/Zarmaijemimah/SwiftRemit/pull/new/feature/proof-of-payout-horizon-integration
+Visit: https://github.com/Zarmaijemimah/QuickTransmit/pull/new/feature/proof-of-payout-horizon-integration
 
 ### 2. Code Review
 - Review implementation

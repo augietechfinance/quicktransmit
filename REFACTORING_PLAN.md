@@ -1,7 +1,7 @@
-# SwiftRemit Soroban Contract Refactoring Plan
+# QuickTransmit Soroban Contract Refactoring Plan
 
 ## Overview
-This document outlines the production-readiness refactoring for the SwiftRemit Soroban smart contracts. All changes preserve existing logic, storage schemas, and public APIs.
+This document outlines the production-readiness refactoring for the QuickTransmit Soroban smart contracts. All changes preserve existing logic, storage schemas, and public APIs.
 
 ## Refactoring Scope
 

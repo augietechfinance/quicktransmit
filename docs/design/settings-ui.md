@@ -1,8 +1,8 @@
 # Settings UI
 
-Figma: https://www.figma.com/design/2wymodr5O54BzxyjNw8jrG/Swift-Remit-UI?node-id=33-4&t=rlRmiUDHYfdLfxvp-0
+Figma: https://www.figma.com/design/2wymodr5O54BzxyjNw8jrG/Quick-Transmit-UI?node-id=33-4&t=rlRmiUDHYfdLfxvp-0
 
-SwiftRemit Settings interface for the Stellar-based micro-remittance platform. Goal: package complex Web3 identity and security features into a clean, fintech-first mobile experience.
+QuickTransmit Settings interface for the Stellar-based micro-remittance platform. Goal: package complex Web3 identity and security features into a clean, fintech-first mobile experience.
 
 ## Core UI/UX Contributions
 

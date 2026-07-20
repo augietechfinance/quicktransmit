@@ -1,6 +1,6 @@
-# SwiftRemit Security Model
+# QuickTransmit Security Model
 
-This document describes the authorization model for the SwiftRemit Soroban smart contract
+This document describes the authorization model for the QuickTransmit Soroban smart contract
 and records the findings of the security audit conducted against issue #937.
 
 ---
@@ -125,5 +125,5 @@ immediately on a single admin signature:
 
 ## Reporting vulnerabilities
 
-Please email **security@swiftremit.example** or open a GitHub Security Advisory.
+Please email **security@quicktransmit.example** or open a GitHub Security Advisory.
 Do not open public issues for potential security vulnerabilities.

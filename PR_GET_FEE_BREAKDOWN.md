@@ -9,7 +9,7 @@
 
 ## Overview
 
-This PR implements the `get_fee_breakdown` query function for the SwiftRemit smart contract, allowing users to preview detailed fee breakdowns before creating remittances. The function supports all fee strategies (Percentage, Flat, Dynamic) and corridor-specific fee configurations.
+This PR implements the `get_fee_breakdown` query function for the QuickTransmit smart contract, allowing users to preview detailed fee breakdowns before creating remittances. The function supports all fee strategies (Percentage, Flat, Dynamic) and corridor-specific fee configurations.
 
 ---
 

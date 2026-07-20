@@ -5,19 +5,19 @@ mod tests {
     use soroban_sdk::{testutils::Address as _, Address, Env, Vec};
 
     use crate::{
-        BatchCreateEntry, ContractError, RemittanceStatus, SwiftRemitContract,
-        SwiftRemitContractClient,
+        BatchCreateEntry, ContractError, RemittanceStatus, QuickTransmitContract,
+        QuickTransmitContractClient,
     };
 
-    fn setup(env: &Env) -> (SwiftRemitContractClient, Address, Address) {
+    fn setup(env: &Env) -> (QuickTransmitContractClient, Address, Address) {
         env.mock_all_auths();
         let admin = Address::generate(env);
         let token_addr = env
             .register_stellar_asset_contract_v2(admin.clone())
             .address();
-        let contract = SwiftRemitContractClient::new(
+        let contract = QuickTransmitContractClient::new(
             env,
-            &env.register_contract(None, SwiftRemitContract {}),
+            &env.register_contract(None, QuickTransmitContract {}),
         );
         contract.initialize(&admin, &token_addr, &250, &0, &0, &admin);
         let agent = Address::generate(env);

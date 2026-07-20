@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { nativeToScVal } from '@stellar/stellar-sdk';
 import { parseRemittance } from './convert.js';
-import { SwiftRemitError, ErrorCode } from './errors.js';
+import { QuickTransmitError, ErrorCode } from './errors.js';
 
 function makeRemittanceScVal(overrides: Record<string, unknown> = {}) {
   const base = {
@@ -36,26 +36,26 @@ describe('parseRemittance', () => {
     expect(remittance.failedAt).toBeNull();
   });
 
-  it('throws a typed SwiftRemitError when a required field is missing', () => {
-    expect(() => parseRemittance(makeRemittanceScVal({ sender: undefined }))).toThrow(SwiftRemitError);
+  it('throws a typed QuickTransmitError when a required field is missing', () => {
+    expect(() => parseRemittance(makeRemittanceScVal({ sender: undefined }))).toThrow(QuickTransmitError);
     try {
       parseRemittance(makeRemittanceScVal({ sender: undefined }));
     } catch (error) {
-      expect(error).toBeInstanceOf(SwiftRemitError);
-      if (error instanceof SwiftRemitError) {
+      expect(error).toBeInstanceOf(QuickTransmitError);
+      if (error instanceof QuickTransmitError) {
         expect(error.code).toBe(ErrorCode.DataCorruption);
         expect(error.rawError).toContain('sender');
       }
     }
   });
 
-  it('throws a typed SwiftRemitError when status is invalid', () => {
-    expect(() => parseRemittance(makeRemittanceScVal({ status: {} }))).toThrow(SwiftRemitError);
+  it('throws a typed QuickTransmitError when status is invalid', () => {
+    expect(() => parseRemittance(makeRemittanceScVal({ status: {} }))).toThrow(QuickTransmitError);
     try {
       parseRemittance(makeRemittanceScVal({ status: {} }));
     } catch (error) {
-      expect(error).toBeInstanceOf(SwiftRemitError);
-      if (error instanceof SwiftRemitError) {
+      expect(error).toBeInstanceOf(QuickTransmitError);
+      if (error instanceof QuickTransmitError) {
         expect(error.code).toBe(ErrorCode.DataCorruption);
         expect(error.rawError).toContain('status');
       }

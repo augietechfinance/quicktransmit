@@ -2,7 +2,7 @@
 
 ## Overview
 
-This design replaces SwiftRemit's single-admin model with a multi-signature governance
+This design replaces QuickTransmit's single-admin model with a multi-signature governance
 system built directly into the existing Soroban contract. The governance module introduces
 a proposal lifecycle (create → vote → execute) that gates all privileged operations —
 fee updates, agent management, and admin set changes — behind a configurable quorum of
@@ -144,7 +144,7 @@ pub fn do_migrate(
 ### New `lib.rs` Entry Points
 
 ```rust
-// Governance entry points added to SwiftRemitContract impl
+// Governance entry points added to QuickTransmitContract impl
 pub fn propose(env: Env, proposer: Address, action: ProposalAction) -> Result<u64, ContractError>;
 pub fn vote(env: Env, voter: Address, proposal_id: u64, approve: bool) -> Result<(), ContractError>;
 pub fn execute(env: Env, executor: Address, proposal_id: u64) -> Result<(), ContractError>;

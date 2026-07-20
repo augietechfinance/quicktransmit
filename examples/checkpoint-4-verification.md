@@ -53,7 +53,7 @@ $ node -e "const client = require('./examples/client-example'); console.log('✅
 - ✅ `config.network` - Network selection (testnet/mainnet)
 - ✅ `config.rpcUrl` - RPC endpoint URL
 - ✅ `config.networkPassphrase` - Stellar network passphrase
-- ✅ `config.contractId` - SwiftRemit contract address
+- ✅ `config.contractId` - QuickTransmit contract address
 - ✅ `config.usdcTokenId` - USDC token contract address
 - ✅ `config.defaultFeeBps` - Default platform fee
 - ✅ `config.transactionFee` - Transaction fee in stroops

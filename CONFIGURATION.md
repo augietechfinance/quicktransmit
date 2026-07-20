@@ -1,10 +1,10 @@
 # Configuration Guide
 
-This guide explains how to configure the SwiftRemit system for different environments using environment variables.
+This guide explains how to configure the QuickTransmit system for different environments using environment variables.
 
 ## Overview
 
-SwiftRemit uses environment variables for configuration to support different deployment environments (local development, testnet, mainnet) without modifying code. Configuration is centralized in:
+QuickTransmit uses environment variables for configuration to support different deployment environments (local development, testnet, mainnet) without modifying code. Configuration is centralized in:
 
 - `.env` file: Your local environment configuration (gitignored)
 - `.env.example`: Template with all available configuration options
@@ -21,7 +21,7 @@ SwiftRemit uses environment variables for configuration to support different dep
 2. Edit `.env` and fill in your values:
    ```bash
    # Required for client operations
-   SWIFTREMIT_CONTRACT_ID=your_contract_id_here
+   QUICKTRANSMIT_CONTRACT_ID=your_contract_id_here
    USDC_TOKEN_ID=your_usdc_token_id_here
    
    # Optional: customize other settings
@@ -51,11 +51,11 @@ SwiftRemit uses environment variables for configuration to support different dep
 
 ### Contract Addresses
 
-#### SWIFTREMIT_CONTRACT_ID
-- **Description**: Deployed SwiftRemit contract address
+#### QUICKTRANSMIT_CONTRACT_ID
+- **Description**: Deployed QuickTransmit contract address
 - **Type**: String
 - **Required**: Yes (for client operations)
-- **Example**: `SWIFTREMIT_CONTRACT_ID=CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSC4`
+- **Example**: `QUICKTRANSMIT_CONTRACT_ID=CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSC4`
 
 #### USDC_TOKEN_ID
 - **Description**: USDC token contract address
@@ -159,7 +159,7 @@ SwiftRemit uses environment variables for configuration to support different dep
 # .env for local development
 NETWORK=testnet
 RPC_URL=https://soroban-testnet.stellar.org:443
-SWIFTREMIT_CONTRACT_ID=CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSC4
+QUICKTRANSMIT_CONTRACT_ID=CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSC4
 USDC_TOKEN_ID=CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSC4
 DEFAULT_FEE_BPS=250
 TRANSACTION_FEE=100000
@@ -227,13 +227,13 @@ These values affect client behavior but not on-chain logic:
 
 ### Common Configuration Errors
 
-#### Error: "Missing required environment variable: SWIFTREMIT_CONTRACT_ID"
+#### Error: "Missing required environment variable: QUICKTRANSMIT_CONTRACT_ID"
 
 **Cause**: Required environment variable not set
 
 **Solution**: Add the variable to your `.env` file:
 ```bash
-SWIFTREMIT_CONTRACT_ID=your_contract_id_here
+QUICKTRANSMIT_CONTRACT_ID=your_contract_id_here
 ```
 
 #### Error: "DEFAULT_FEE_BPS must be between 0 and 10000, got: 15000"
@@ -309,7 +309,7 @@ If any validation fails, the application will throw a descriptive error and exit
 
 ## AWS Secrets Manager Integration
 
-SwiftRemit supports AWS Secrets Manager for secure secret management in production environments. This integration eliminates plaintext secrets in environment variables.
+QuickTransmit supports AWS Secrets Manager for secure secret management in production environments. This integration eliminates plaintext secrets in environment variables.
 
 ### Required Secrets
 
@@ -319,7 +319,7 @@ All the following secrets must be stored in AWS Secrets Manager:
 |-------------|-------------|----------|
 | `DATABASE_URL` | PostgreSQL connection string | Yes |
 | `ADMIN_SECRET_KEY` | Stellar admin keypair secret (for contract operations) | Yes |
-| `CONTRACT_ID` | Deployed SwiftRemit contract address | Yes |
+| `CONTRACT_ID` | Deployed QuickTransmit contract address | Yes |
 | `JWT_SECRET` | Secret key for JWT signing (API service) | Yes |
 | `FX_API_KEY` | External FX rate API key | No (optional) |
 | `WEBHOOK_SECRET_{ANCHOR_ID}` | HMAC secrets for webhook verification | Required per anchor |
@@ -347,33 +347,33 @@ SECRETS_ROTATION_CHECK_INTERVAL_MS=60000
 ```bash
 # Create DATABASE_URL secret
 aws secretsmanager create-secret \
-  --name swiftremit/DATABASE_URL \
-  --secret-string "postgresql://user:password@rds-endpoint:5432/swiftremit"
+  --name quicktransmit/DATABASE_URL \
+  --secret-string "postgresql://user:password@rds-endpoint:5432/quicktransmit"
 
 # Create ADMIN_SECRET_KEY secret
 aws secretsmanager create-secret \
-  --name swiftremit/ADMIN_SECRET_KEY \
+  --name quicktransmit/ADMIN_SECRET_KEY \
   --secret-string "SXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
 # Create CONTRACT_ID secret
 aws secretsmanager create-secret \
-  --name swiftremit/CONTRACT_ID \
+  --name quicktransmit/CONTRACT_ID \
   --secret-string "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSC4"
 
 # Create JWT_SECRET secret
 aws secretsmanager create-secret \
-  --name swiftremit/JWT_SECRET \
+  --name quicktransmit/JWT_SECRET \
   --secret-string "your-jwt-signing-secret-here"
 
 # Create webhook secrets (per anchor)
 aws secretsmanager create-secret \
-  --name swiftremit/WEBHOOK_SECRET_PRIMARY \
+  --name quicktransmit/WEBHOOK_SECRET_PRIMARY \
   --secret-string "webhook-hmac-secret-here"
 ```
 
 ### Secret Rotation
 
-SwiftRemit supports automatic secret rotation detection. When secrets are rotated in AWS Secrets Manager:
+QuickTransmit supports automatic secret rotation detection. When secrets are rotated in AWS Secrets Manager:
 
 1. The application polls for changes (configurable via `SECRETS_ROTATION_CHECK_INTERVAL_MS`)
 2. Rotation hooks update in-memory caches automatically
@@ -414,20 +414,20 @@ For AWS Secrets Manager with External Secrets Operator:
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
-  name: swiftremit-api-secrets
+  name: quicktransmit-api-secrets
 spec:
   secretStoreRef:
     name: aws-secrets-manager
     kind: SecretStore
   target:
-    name: swiftremit-api
+    name: quicktransmit-api
   data:
     - secretKey: DATABASE_URL
       remoteRef:
-        key: swiftremit/DATABASE_URL
+        key: quicktransmit/DATABASE_URL
     - secretKey: JWT_SECRET
       remoteRef:
-        key: swiftremit/JWT_SECRET
+        key: quicktransmit/JWT_SECRET
 ```
 
 ### Local Development
@@ -437,7 +437,7 @@ For local development, secrets can still be loaded from `.env` files. Set `SECRE
 ```bash
 # .env for local development
 SECRETS_MANAGER_ENABLED=false
-DATABASE_URL=postgresql://user:password@localhost:5432/swiftremit
+DATABASE_URL=postgresql://user:password@localhost:5432/quicktransmit
 ADMIN_SECRET_KEY=SXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 CONTRACT_ID=CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSC4
 JWT_SECRET=development-jwt-secret

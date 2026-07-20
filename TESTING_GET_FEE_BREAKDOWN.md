@@ -1,6 +1,6 @@
 # Testing Guide: get_fee_breakdown Query Function (Issue #236)
 
-This guide provides step-by-step instructions to verify successful implementation of the `get_fee_breakdown` query function for the SwiftRemit smart contract.
+This guide provides step-by-step instructions to verify successful implementation of the `get_fee_breakdown` query function for the QuickTransmit smart contract.
 
 ## Overview
 
@@ -220,8 +220,8 @@ fn test_create_remittance_matches_fee_breakdown() {
     let (token, token_admin) = create_token_contract(&env, &admin);
     token_admin.mint(&sender, &100000);
 
-    let contract_id = env.register_contract(None, SwiftRemitContract);
-    let client = SwiftRemitContractClient::new(&env, &contract_id);
+    let contract_id = env.register_contract(None, QuickTransmitContract);
+    let client = QuickTransmitContractClient::new(&env, &contract_id);
 
     client.initialize(&admin, &token.address, &250, &0, &0, &treasury);
     client.register_agent(&agent);

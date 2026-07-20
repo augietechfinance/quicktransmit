@@ -17,7 +17,7 @@ extern crate std;
 
 use soroban_sdk::{testutils::Address as _, token, Address, Env};
 
-use crate::{migration, SwiftRemitContract, SwiftRemitContractClient};
+use crate::{migration, QuickTransmitContract, QuickTransmitContractClient};
 
 // ─── Test helpers ─────────────────────────────────────────────────────────────
 
@@ -26,7 +26,7 @@ fn create_token(env: &Env, admin: &Address) -> token::StellarAssetClient {
     token::StellarAssetClient::new(env, &id.address())
 }
 
-fn setup() -> (Env, SwiftRemitContractClient<'static>, Address, Address, Address) {
+fn setup() -> (Env, QuickTransmitContractClient<'static>, Address, Address, Address) {
     let env = Env::default();
     env.mock_all_auths();
 
@@ -37,7 +37,7 @@ fn setup() -> (Env, SwiftRemitContractClient<'static>, Address, Address, Address
     let sender = Address::generate(&env);
 
     let client =
-        SwiftRemitContractClient::new(&env, &env.register_contract(None, SwiftRemitContract {}));
+        QuickTransmitContractClient::new(&env, &env.register_contract(None, QuickTransmitContract {}));
 
     client.initialize(&admin, &token.address, &250, &0, &0, &admin);
     client.register_agent(&agent, &None);

@@ -1,4 +1,4 @@
-# SwiftRemit Issue #236 - Implementation Summary
+# QuickTransmit Issue #236 - Implementation Summary
 
 ## Assignment: Add get_fee_breakdown Query Function
 
@@ -177,7 +177,7 @@ All 30+ tests should PASS ✅
 
 ## Integration with Existing Code
 
-The implementation seamlessly integrates with existing SwiftRemit components:
+The implementation seamlessly integrates with existing QuickTransmit components:
 
 - **Uses:** `fee_service::calculate_fees_with_breakdown()` function
 - **Uses:** `get_fee_corridor()` storage function  

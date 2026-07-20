@@ -8,7 +8,7 @@
 
 ## Overview
 
-Successfully implemented four critical features for SwiftRemit production deployment:
+Successfully implemented four critical features for QuickTransmit production deployment:
 
 1. **#198** - Production Readiness Assessment Report
 2. **#199** - Transaction History Pagination
@@ -339,13 +339,13 @@ test result: ok. 210+ passed; 0 failed
 1. **Build Contract**
    ```bash
    cargo build --target wasm32-unknown-unknown --release
-   soroban contract optimize --wasm target/wasm32-unknown-unknown/release/swiftremit.wasm
+   soroban contract optimize --wasm target/wasm32-unknown-unknown/release/quicktransmit.wasm
    ```
 
 2. **Deploy to Testnet**
    ```bash
    soroban contract deploy \
-     --wasm target/wasm32-unknown-unknown/release/swiftremit.optimized.wasm \
+     --wasm target/wasm32-unknown-unknown/release/quicktransmit.optimized.wasm \
      --source deployer \
      --network testnet
    ```

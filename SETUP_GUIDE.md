@@ -10,8 +10,8 @@ The fastest way to get a full local environment running — no manual PostgreSQL
 
 ```bash
 # 1. Clone the repo and enter the directory
-git clone https://github.com/HaroldwonderSwiftRemit/SwiftRemit.git
-cd SwiftRemit
+git clone https://github.com/HaroldwonderQuickTransmit/QuickTransmit.git
+cd QuickTransmit
 
 # 2. (Optional) Create a local secrets override
 cp docker-compose.override.yml docker-compose.override.local.yml
@@ -63,7 +63,7 @@ Follow the steps below if you prefer to run services directly on your machine.
 # Windows: Start from Services
 
 # Create database
-psql -U postgres -c "CREATE DATABASE swiftremit;"
+psql -U postgres -c "CREATE DATABASE quicktransmit;"
 ```
 
 ## 2. Backend Service Setup
@@ -96,11 +96,11 @@ npm start
 ```bash
 # Build contract
 cargo build --target wasm32-unknown-unknown --release
-soroban contract optimize --wasm target/wasm32-unknown-unknown/release/swiftremit.wasm
+soroban contract optimize --wasm target/wasm32-unknown-unknown/release/quicktransmit.wasm
 
 # Deploy to testnet
 soroban contract deploy \
-  --wasm target/wasm32-unknown-unknown/release/swiftremit.optimized.wasm \
+  --wasm target/wasm32-unknown-unknown/release/quicktransmit.optimized.wasm \
   --source deployer \
   --network testnet
 
@@ -177,7 +177,7 @@ curl http://localhost:3000/api/verification/USDC/GA5ZSEJYB37JRC5AVCIA5MOP4RHTM33
 
 ```bash
 # Database
-DATABASE_URL=postgresql://user:password@localhost:5432/swiftremit
+DATABASE_URL=postgresql://user:password@localhost:5432/quicktransmit
 
 # Stellar Network
 STELLAR_NETWORK=testnet
@@ -208,10 +208,10 @@ MIN_REPUTATION_SCORE=50
 psql -U postgres -c "SELECT version();"
 
 # Verify database exists
-psql -U postgres -l | grep swiftremit
+psql -U postgres -l | grep quicktransmit
 
 # Test connection
-psql postgresql://user:password@localhost:5432/swiftremit
+psql postgresql://user:password@localhost:5432/quicktransmit
 ```
 
 ### Backend Service Issues
@@ -235,7 +235,7 @@ curl http://localhost:3000/health
 soroban contract info --id <CONTRACT_ID> --network testnet
 
 # Check contract functions
-soroban contract inspect --wasm target/wasm32-unknown-unknown/release/swiftremit.optimized.wasm
+soroban contract inspect --wasm target/wasm32-unknown-unknown/release/quicktransmit.optimized.wasm
 ```
 
 ## Production Deployment
@@ -245,36 +245,36 @@ soroban contract inspect --wasm target/wasm32-unknown-unknown/release/swiftremit
 ```bash
 # Use process manager (PM2)
 npm install -g pm2
-pm2 start npm --name "swiftremit-api" -- start
+pm2 start npm --name "quicktransmit-api" -- start
 pm2 save
 pm2 startup
 
 # Or use Docker
-docker build -t swiftremit-api .
-docker run -p 3000:3000 --env-file .env swiftremit-api
+docker build -t quicktransmit-api .
+docker run -p 3000:3000 --env-file .env quicktransmit-api
 ```
 
 ### Database
 
 ```bash
 # Enable SSL for production
-DATABASE_URL=postgresql://user:password@host:5432/swiftremit?sslmode=require
+DATABASE_URL=postgresql://user:password@host:5432/quicktransmit?sslmode=require
 
 # Set up backups
-pg_dump swiftremit > backup.sql
+pg_dump quicktransmit > backup.sql
 
 # Restore from backup
-psql swiftremit < backup.sql
+psql quicktransmit < backup.sql
 ```
 
 ### Monitoring
 
 ```bash
 # Backend logs
-pm2 logs swiftremit-api
+pm2 logs quicktransmit-api
 
 # Database monitoring
-psql swiftremit -c "SELECT * FROM pg_stat_activity;"
+psql quicktransmit -c "SELECT * FROM pg_stat_activity;"
 
 # API health check
 curl http://your-domain.com/health

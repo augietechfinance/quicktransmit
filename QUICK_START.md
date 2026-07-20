@@ -1,6 +1,6 @@
-# SwiftRemit Quick Start
+# QuickTransmit Quick Start
 
-Get up and running with SwiftRemit on Stellar testnet in minutes.
+Get up and running with QuickTransmit on Stellar testnet in minutes.
 
 ## 🚀 One-Command Setup
 
@@ -16,7 +16,7 @@ Get up and running with SwiftRemit on Stellar testnet in minutes.
 
 This automated script will:
 - ✅ Generate test accounts and fund them with XLM
-- ✅ Deploy SwiftRemit contract and mock USDC token
+- ✅ Deploy QuickTransmit contract and mock USDC token
 - ✅ Register an agent and mint test USDC
 - ✅ Run a complete test remittance flow
 - ✅ Save all configuration to `.env.local`
@@ -36,7 +36,7 @@ After running the setup script:
 - **Deployer Account**: Contract admin, funded with 10,000 XLM
 
 ### Contracts Deployed
-- **SwiftRemit Contract**: Main remittance logic
+- **QuickTransmit Contract**: Main remittance logic
 - **Mock USDC Token**: For testing transfers
 
 ### Configuration Files
@@ -122,7 +122,7 @@ source .env.local
 
 # Create a remittance
 soroban contract invoke \
-  --id $SWIFTREMIT_CONTRACT_ID \
+  --id $QUICKTRANSMIT_CONTRACT_ID \
   --source sender \
   --network testnet \
   -- \
@@ -133,7 +133,7 @@ soroban contract invoke \
 
 # Confirm payout (as agent)
 soroban contract invoke \
-  --id $SWIFTREMIT_CONTRACT_ID \
+  --id $QUICKTRANSMIT_CONTRACT_ID \
   --source agent \
   --network testnet \
   -- \
@@ -155,7 +155,7 @@ soroban contract invoke \
 ### Check Contract Status
 ```bash
 soroban contract invoke \
-  --id $SWIFTREMIT_CONTRACT_ID \
+  --id $QUICKTRANSMIT_CONTRACT_ID \
   --source sender \
   --network testnet \
   -- \
@@ -164,7 +164,7 @@ soroban contract invoke \
 
 ### Watch Events
 ```bash
-soroban events --start-ledger latest --id $SWIFTREMIT_CONTRACT_ID --network testnet
+soroban events --start-ledger latest --id $QUICKTRANSMIT_CONTRACT_ID --network testnet
 ```
 
 ### Check Balances
@@ -192,7 +192,7 @@ curl "https://friendbot.stellar.org/?addr=YOUR_ADDRESS"
 **"Contract not found"**
 ```bash
 # Verify deployment
-soroban contract info --id $SWIFTREMIT_CONTRACT_ID --network testnet
+soroban contract info --id $QUICKTRANSMIT_CONTRACT_ID --network testnet
 ```
 
 **"Insufficient balance"**

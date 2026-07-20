@@ -104,7 +104,7 @@ match contract.execute_transaction(&user, &agent, &1000, &None) {
 ## 🔗 Pull Request
 
 Branch: `feature/transaction-controller`  
-PR Link: https://github.com/zeekman/SwiftRemit/pull/new/feature/transaction-controller
+PR Link: https://github.com/zeekman/QuickTransmit/pull/new/feature/transaction-controller
 
 ---
 

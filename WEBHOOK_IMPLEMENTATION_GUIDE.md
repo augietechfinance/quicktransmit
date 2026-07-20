@@ -2,7 +2,7 @@
 
 ## Overview
 
-A comprehensive webhook system has been implemented for the SwiftRemit backend service. This system enables real-time notifications to subscribers whenever remittance statuses change.
+A comprehensive webhook system has been implemented for the QuickTransmit backend service. This system enables real-time notifications to subscribers whenever remittance statuses change.
 
 ## Files Created
 

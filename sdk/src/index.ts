@@ -1,5 +1,5 @@
 export {
-  SwiftRemitClient,
+  QuickTransmitClient,
   MAX_BATCH_SIZE,
   buildUpdateFeeProposal,
   buildRegisterAgentProposal,
@@ -12,9 +12,9 @@ export {
   buildWhitelistAssetProposal,
   buildAdjustReputationThresholdProposal,
 } from "./client.js";
-export { SwiftRemitError, ErrorCode, parseContractError } from "./errors.js";
+export { QuickTransmitError, ErrorCode, parseContractError } from "./errors.js";
 export type {
-  SwiftRemitClientOptions,
+  QuickTransmitClientOptions,
   Remittance,
   RemittanceStatus,
   RemittanceEvent,

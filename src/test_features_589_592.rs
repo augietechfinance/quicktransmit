@@ -2,7 +2,7 @@
 #![cfg(test)]
 
 use soroban_sdk::{testutils::{Address as _, Ledger, LedgerInfo}, token, Address, BytesN, Env};
-use crate::{ContractError, SwiftRemitContract, SwiftRemitContractClient};
+use crate::{ContractError, QuickTransmitContract, QuickTransmitContractClient};
 
 fn make_token(env: &Env, admin: &Address) -> token::StellarAssetClient<'static> {
     let addr = env.register_stellar_asset_contract_v2(admin.clone()).address();
@@ -11,13 +11,13 @@ fn make_token(env: &Env, admin: &Address) -> token::StellarAssetClient<'static> 
 fn bal(env: &Env, tok: &token::StellarAssetClient, addr: &Address) -> i128 {
     token::Client::new(env, &tok.address).balance(addr)
 }
-fn make_contract(env: &Env) -> SwiftRemitContractClient<'static> {
-    SwiftRemitContractClient::new(env, &env.register_contract(None, SwiftRemitContract {}))
+fn make_contract(env: &Env) -> QuickTransmitContractClient<'static> {
+    QuickTransmitContractClient::new(env, &env.register_contract(None, QuickTransmitContract {}))
 }
 
 struct F<'a> {
     env: Env,
-    c: SwiftRemitContractClient<'a>,
+    c: QuickTransmitContractClient<'a>,
     tok: token::StellarAssetClient<'a>,
     admin: Address,
     sender: Address,

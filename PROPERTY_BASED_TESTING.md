@@ -1,6 +1,6 @@
 # Property-Based Testing for Fee Calculations
 
-This document describes the comprehensive property-based testing suite for SwiftRemit's fee calculation logic, designed to catch edge cases, overflows, and mathematical inconsistencies through fuzzing.
+This document describes the comprehensive property-based testing suite for QuickTransmit's fee calculation logic, designed to catch edge cases, overflows, and mathematical inconsistencies through fuzzing.
 
 ## Overview
 

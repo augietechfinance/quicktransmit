@@ -2,7 +2,7 @@
 
 ## Overview
 
-This PR implements a comprehensive asset issuer verification system for SwiftRemit that verifies asset code and issuer pairs against multiple trusted sources.
+This PR implements a comprehensive asset issuer verification system for QuickTransmit that verifies asset code and issuer pairs against multiple trusted sources.
 
 ## Changes
 

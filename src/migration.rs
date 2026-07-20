@@ -1,4 +1,4 @@
-//! Migration module for SwiftRemit contract upgrades.
+//! Migration module for QuickTransmit contract upgrades.
 //!
 //! # Overview
 //!

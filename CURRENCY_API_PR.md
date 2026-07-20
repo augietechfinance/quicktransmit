@@ -2,7 +2,7 @@
 
 ## Overview
 
-This PR implements a RESTful API endpoint that exposes all supported currencies and their formatting rules for the SwiftRemit platform. The implementation uses dynamic configuration loading with environment-based overrides, comprehensive validation, and fail-fast behavior.
+This PR implements a RESTful API endpoint that exposes all supported currencies and their formatting rules for the QuickTransmit platform. The implementation uses dynamic configuration loading with environment-based overrides, comprehensive validation, and fail-fast behavior.
 
 ## Changes
 

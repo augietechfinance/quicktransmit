@@ -2,7 +2,7 @@
 
 ## Introduction
 
-SwiftRemit currently uses a single-admin model where one privileged address controls all
+QuickTransmit currently uses a single-admin model where one privileged address controls all
 sensitive operations: updating platform fees and managing agent registration. This creates
 a single point of failure and trust, which is unacceptable for a production remittance
 protocol handling real funds.
@@ -22,7 +22,7 @@ lifecycle on top of it.
 ## Glossary
 
 - **Governance_System**: The on-chain multi-sig/DAO governance module added to the
-  SwiftRemit Soroban contract.
+  QuickTransmit Soroban contract.
 - **Admin**: An address that holds the `Role::Admin` privilege and may submit and vote
   on governance proposals.
 - **Proposal**: A pending governance action (fee update or agent management operation)

@@ -1,6 +1,6 @@
-# SwiftRemit Frontend
+# QuickTransmit Frontend
 
-React + TypeScript frontend for the SwiftRemit USDC remittance platform, built with Vite and the Stellar SDK.
+React + TypeScript frontend for the QuickTransmit USDC remittance platform, built with Vite and the Stellar SDK.
 
 See also: [Root README](../README.md) | [Deployment Guide](../DEPLOYMENT.md)
 
@@ -13,7 +13,7 @@ Before running the frontend, ensure you have:
 - **Node.js >= 18** (check with `node --version`)
 - **npm** or **yarn** package manager
 - **[Freighter wallet extension](https://www.freighter.app/)** installed in your browser (Chrome, Firefox, or Brave)
-- A **deployed SwiftRemit contract** on Stellar testnet (see [DEPLOYMENT.md](../DEPLOYMENT.md))
+- A **deployed QuickTransmit contract** on Stellar testnet (see [DEPLOYMENT.md](../DEPLOYMENT.md))
 - **Testnet XLM** for transaction fees (get from [Stellar Friendbot](https://friendbot.stellar.org))
 - **Testnet USDC** for testing remittances (available via testnet faucets)
 
@@ -53,7 +53,7 @@ VITE_USDC_TOKEN_ID=
 | `VITE_NETWORK` | Stellar network to connect to | `testnet` or `mainnet` |
 | `VITE_HORIZON_URL` | Horizon API endpoint for Stellar operations | `https://horizon-testnet.stellar.org` |
 | `VITE_SOROBAN_RPC_URL` | Soroban RPC endpoint for smart contract calls | `https://soroban-testnet.stellar.org` |
-| `VITE_CONTRACT_ID` | Your deployed SwiftRemit contract address (starts with `C`) | `CXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX` |
+| `VITE_CONTRACT_ID` | Your deployed QuickTransmit contract address (starts with `C`) | `CXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX` |
 | `VITE_USDC_ISSUER` | Issuer account for the USDC asset used by wallet payments | `G...` |
 | `VITE_EURC_ISSUER` | Issuer account for the EURC asset used by wallet payments | `G...` |
 | `VITE_USDC_TOKEN_ID` | Testnet USDC token contract address | `CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA` |
@@ -96,7 +96,7 @@ npm run preview
 
 ## Pointing the App at a Deployed Contract
 
-1. Deploy the SwiftRemit contract to testnet following [DEPLOYMENT.md](../DEPLOYMENT.md).
+1. Deploy the QuickTransmit contract to testnet following [DEPLOYMENT.md](../DEPLOYMENT.md).
 2. Copy the resulting contract ID (starts with `C`).
 3. Set `VITE_CONTRACT_ID=<your-contract-id>` in your `.env`.
 4. Restart the dev server (`npm run dev`) — Vite picks up env changes on restart.

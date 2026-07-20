@@ -1,5 +1,5 @@
-export { SwiftRemitRNClient } from './client.js';
-export type { SwiftRemitRNClientOptions, SwiftRemitSigner } from './client.js';
+export { QuickTransmitRNClient } from './client.js';
+export type { QuickTransmitRNClientOptions, QuickTransmitSigner } from './client.js';
 export { useCreateRemittance, useNetworkToggle } from './hooks.js';
 export type { StellarNetwork } from './hooks.js';
 
@@ -11,6 +11,6 @@ export {
   Networks,
   RpcUrls,
   ErrorCode,
-  SwiftRemitError,
+  QuickTransmitError,
   parseContractError,
-} from '@swiftremit/sdk';
+} from '@quicktransmit/sdk';

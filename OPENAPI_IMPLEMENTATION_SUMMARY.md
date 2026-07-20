@@ -2,7 +2,7 @@
 
 ## Issue Resolution
 
-This implementation addresses the requirement for machine-readable API specifications for SwiftRemit services.
+This implementation addresses the requirement for machine-readable API specifications for QuickTransmit services.
 
 ### Problem Statement
 - Backend and currency API had no machine-readable API specification
@@ -266,4 +266,4 @@ When adding/modifying endpoints:
 
 ## Conclusion
 
-This implementation provides a complete, validated, and maintainable OpenAPI specification for both SwiftRemit services. The specs are automatically validated in CI/CD, served via Swagger UI, and ready for client SDK generation. All acceptance criteria have been met and exceeded.
+This implementation provides a complete, validated, and maintainable OpenAPI specification for both QuickTransmit services. The specs are automatically validated in CI/CD, served via Swagger UI, and ready for client SDK generation. All acceptance criteria have been met and exceeded.

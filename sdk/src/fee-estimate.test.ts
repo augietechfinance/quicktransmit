@@ -1,9 +1,9 @@
 /**
- * Unit tests for SwiftRemitClient.estimateFee — mocks the underlying
+ * Unit tests for QuickTransmitClient.estimateFee — mocks the underlying
  * Stellar simulation so no live network is required.
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { SwiftRemitClient } from "./client.js";
+import { QuickTransmitClient } from "./client.js";
 import { Networks } from "@stellar/stellar-sdk";
 
 const CONTRACT_ID = "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2KM";
@@ -12,14 +12,14 @@ const AMOUNT = 100_000_000n; // 10 USDC
 const CORRIDOR = { currency: "USDC", country: "NG" };
 
 function makeClient(rpcUrl = "http://localhost:8000") {
-  return new SwiftRemitClient({
+  return new QuickTransmitClient({
     contractId: CONTRACT_ID,
     networkPassphrase: Networks.TESTNET,
     rpcUrl,
   });
 }
 
-function mockSimulation(client: SwiftRemitClient, platformFee: bigint, protocolFee: bigint, netAmount: bigint) {
+function mockSimulation(client: QuickTransmitClient, platformFee: bigint, protocolFee: bigint, netAmount: bigint) {
   const { xdr, scValToNative: _ignore, nativeToScVal } = vi.importActual<typeof import("@stellar/stellar-sdk")>("@stellar/stellar-sdk") as never;
   void _ignore;
 
@@ -51,7 +51,7 @@ function mockSimulation(client: SwiftRemitClient, platformFee: bigint, protocolF
 }
 
 describe("estimateFee", () => {
-  let client: SwiftRemitClient;
+  let client: QuickTransmitClient;
 
   beforeEach(() => {
     client = makeClient();

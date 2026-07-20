@@ -1,6 +1,6 @@
-# Contributing to SwiftRemit
+# Contributing to QuickTransmit
 
-Thank you for your interest in contributing to SwiftRemit! This guide will help you get started with development, testing, and submitting contributions.
+Thank you for your interest in contributing to QuickTransmit! This guide will help you get started with development, testing, and submitting contributions.
 
 ## Table of Contents
 
@@ -37,13 +37,13 @@ Before you begin, ensure you have the following installed:
 1. Fork the repository on GitHub
 2. Clone your fork locally:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/SwiftRemit.git
-   cd SwiftRemit
+   git clone https://github.com/YOUR_USERNAME/QuickTransmit.git
+   cd QuickTransmit
    ```
 
 3. Add the upstream repository:
    ```bash
-   git remote add upstream https://github.com/Haroldwonder/SwiftRemit.git
+   git remote add upstream https://github.com/Haroldwonder/QuickTransmit.git
    ```
 
 ## Development Environment Setup
@@ -126,7 +126,7 @@ See [CONFIGURATION.md](CONFIGURATION.md) for detailed configuration options.
 ## Project Structure
 
 ```
-SwiftRemit/
+QuickTransmit/
 ├── src/                    # Rust smart contract source
 │   ├── lib.rs             # Main contract implementation
 │   ├── types.rs           # Data structures
@@ -436,7 +436,7 @@ troubleshooting section.
 
 1. Push your branch to your fork
 
-2. Go to the [SwiftRemit repository](https://github.com/Haroldwonder/SwiftRemit)
+2. Go to the [QuickTransmit repository](https://github.com/Haroldwonder/QuickTransmit)
 
 3. Click "New Pull Request"
 
@@ -618,8 +618,8 @@ Contributors will be:
 
 ## License
 
-By contributing to SwiftRemit, you agree that your contributions will be licensed under the MIT License.
+By contributing to QuickTransmit, you agree that your contributions will be licensed under the MIT License.
 
 ---
 
-Thank you for contributing to SwiftRemit! 🚀
+Thank you for contributing to QuickTransmit! 🚀

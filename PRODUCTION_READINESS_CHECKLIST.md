@@ -1,7 +1,7 @@
-# SwiftRemit Production Readiness Checklist
+# QuickTransmit Production Readiness Checklist
 
 ## Overview
-This checklist tracks the production-readiness refactoring of the SwiftRemit Soroban smart contracts. All changes preserve existing logic, storage schemas, and public APIs.
+This checklist tracks the production-readiness refactoring of the QuickTransmit Soroban smart contracts. All changes preserve existing logic, storage schemas, and public APIs.
 
 ---
 
@@ -265,7 +265,7 @@ These modules contain experimental or incomplete features from the hackathon. Th
 
 ### 2. Run Tests
 ```bash
-cargo test --package swiftremit
+cargo test --package quicktransmit
 cargo clippy --all-targets
 ```
 
@@ -277,7 +277,7 @@ cargo build --release --target wasm32-unknown-unknown
 ### 4. Deploy to Testnet
 ```bash
 soroban contract deploy \
-  --wasm target/wasm32-unknown-unknown/release/swiftremit.wasm \
+  --wasm target/wasm32-unknown-unknown/release/quicktransmit.wasm \
   --network testnet
 ```
 
